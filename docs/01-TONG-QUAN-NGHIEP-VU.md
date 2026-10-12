@@ -14,7 +14,7 @@
 | Loại sản phẩm | Website (FE là chính) + trang quản trị danh sách demo |
 | Ý tưởng gốc | 0.1 · Trang danh mục demo (`ZDOCS/02-KE-HOACH/DANH-SACH-Y-TUONG.md`) |
 | Người phụ trách | |
-| Trạng thái | Mới tạo từ khuôn mẫu |
+| Trạng thái | Có tài liệu nghiệp vụ (SRS, use case, kịch bản demo, kịch bản kiểm thử), chưa code |
 
 ## 2. Vấn đề của khách hàng
 
@@ -45,6 +45,7 @@
 | `Cms` | Danh mục demo: lưới thẻ, lọc ngành, tìm kiếm | `/` | P1 |
 | `Cms` | Chi tiết demo | `/demos/[slug]` | P1 |
 | `Cms` | Quản lý demo (thêm, sửa, ẩn, sắp xếp) | `/admin/demos` | P1 |
+| `Cms` | Thêm, sửa demo: thông tin, ảnh chụp, tài khoản demo, ghi chú nội bộ | `/admin/demos/[id]` | P1 |
 | `Cms` | Nhóm ngành | `/admin/categories` | P2 |
 | `Cms` | Thống kê lượt xem demo | `/admin/reports` | P3 |
 
