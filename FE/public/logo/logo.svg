@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64" role="img" aria-label="PUM">
+  <style>
+    .wm { font-family: 'Be Vietnam Pro', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 1px; }
+    .ink { fill: #0F172A; }
+    @media (prefers-color-scheme: dark) { .ink { fill: #F8FAFC; } }
+  </style>
+  <rect width="64" height="64" rx="15" fill="#2563EB"/>
+  <path d="M24 51V14h12a12 12 0 0 1 0 24H24" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="80" y="44" class="wm ink">PUM</text>
+</svg>

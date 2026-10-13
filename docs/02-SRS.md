@@ -13,7 +13,7 @@
 
 ### 1.1. Mục đích
 
-Tài liệu mô tả đầy đủ yêu cầu của Danh mục Demo: trang công khai giới thiệu mọi demo của công ty, khu thông tin nội bộ cho nhân viên kinh doanh và trang quản trị danh sách demo. Dev dùng để code, tester dùng để viết và chạy test case, sales dùng để biết trang làm được gì.
+Tài liệu mô tả đầy đủ yêu cầu của Danh mục Demo: trang công khai giới thiệu mọi demo của PUM, khu thông tin nội bộ cho nhân viên kinh doanh và trang quản trị danh sách demo. Dev dùng để code, tester dùng để viết và chạy test case, sales dùng để biết trang làm được gì.
 
 ### 1.2. Phạm vi
 
@@ -119,7 +119,7 @@ flowchart TD
 | FR-02 | Khách lọc demo theo nhóm ngành bằng hàng nút chọn nhanh, mỗi nút kèm số demo; mặc định chọn "Tất cả" | P1 | Khách | UC-01 |
 | FR-03 | Khách tìm demo theo từ khóa trên tên, mô tả ngắn, tính năng nổi bật và từ khóa của demo; gõ không dấu vẫn tìm được (BR-03) | P1 | Khách | UC-01 |
 | FR-04 | Nhóm ngành và từ khóa đang lọc được ghi lên đường dẫn, vd `/?nganh=fnb&q=pos`; mở đường dẫn đó cho ra đúng kết quả | P2 | Khách, STAFF | UC-01, UC-04 |
-| FR-05 | Đầu trang và chân trang hiển thị tên, logo, hotline, nút Zalo của công ty lấy từ cài đặt chung; bấm hotline trên điện thoại thì gọi ngay | P2 | Khách | UC-01 |
+| FR-05 | Đầu trang và chân trang hiển thị tên, logo, hotline, nút Zalo của PUM lấy từ cài đặt chung; bấm hotline trên điện thoại thì gọi ngay | P2 | Khách | UC-01 |
 
 ### 3.2. Chi tiết demo
 

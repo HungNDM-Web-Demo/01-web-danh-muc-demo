@@ -70,7 +70,7 @@ Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở 
 | TC-12 | UC-02 | Xem ảnh phóng to | Khách | 1. Bấm ảnh nhỏ thứ 2 2. Bấm phím → 3. Bấm Esc | Hộp xem ảnh mở ở ảnh 2, chú thích hiển thị; bước 2 sang ảnh 3; bước 3 đóng hộp. Trên 375×812 vuốt ngang chuyển được ảnh |
 | TC-13 | UC-02 | Demo Sắp ra mắt | Khách | 1. Mở `/demos/quan-ly-phong-kham` | Không có nút "Xem demo"; có dòng "Demo đang hoàn thiện, gọi hotline để được giới thiệu trực tiếp"; dùng ảnh mặc định màu nhóm Dịch vụ |
 | TC-14 | UC-02 | Demo không hiển thị | Khách | 1. Mở `/demos/hrm-cham-cong-tinh-luong` 2. Mở `/demos/khong-co` | Cả hai hiện trang "Không tìm thấy demo" có nút về danh mục |
-| TC-15 | UC-02, UC-05 | Đổi slug, link cũ chuyển hướng | Quản lý, Khách | 1. Quản lý đổi slug Quản lý Kho thành `quan-ly-kho-xuat-nhap-ton`, lưu 2. Khách mở `/demos/quan-ly-kho` 3. Quản lý đặt slug của Quản lý Nhà trọ thành `quan-ly-kho` | Bước 1 có cảnh báo link cũ sẽ chuyển hướng. Bước 2 chuyển 301 tới `/demos/quan-ly-kho-xuat-nhap-ton`. Bước 3 báo slug đã được dùng, không lưu |
+| TC-15 | UC-02, UC-05 | Đổi slug, link cũ chuyển hướng | Quản lý, Khách | 1. Quản lý đổi slug Quản lý Kho thành `quan-ly-kho-xuat-nhap-ton`, lưu 2. Khách mở `/demos/quan-ly-kho` 3. Quản lý đặt slug của Quản lý Nhà trọ thành `quan-ly-kho` | Bước 1 có cảnh báo link cũ sẽ chuyển hướng. Bước 2 chuyển hướng vĩnh viễn (301 hoặc 308) tới `/demos/quan-ly-kho-xuat-nhap-ton`. Bước 3 báo slug đã được dùng, không lưu |
 
 ### 2.3. Thông tin nội bộ
 
@@ -126,4 +126,5 @@ Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở 
 
 | Ngày | Người test | Chế độ | Số TC đạt / tổng | Lỗi ghi nhận |
 | :--- | :--- | :--- | :---: | :--- |
-| | | | | |
+| 13/10/2026 | Claude (kiểm thử tự động trên trình duyệt) | mock | 30 / 43 (TC-01 → 14, 16 → 18, 20, 22 → 25, 27, 28, 31, 33, 35 → 37, 39 → 41) | Đã sửa: ảnh tải lên hiện sai thứ tự chọn (TC-27); hộp xác nhận xóa nhóm không đóng khi bị từ chối (TC-40); tiêu đề tab trang xem trước còn "Không tìm thấy demo" (TC-18). Chưa chạy: TC-15, 19, 21, 26, 29, 30, 32, 34, 38, 42, 43 (TC-15, 36 ở mock chỉ đổi trên trình duyệt, máy chủ render từ seed) |
+| 13/10/2026 | Claude (kiểm thử tự động trên trình duyệt) | api | 12 / 43 (TC-01, 02, 10, 14, 15, 16, 26 bước 1, 27, 32, 36; chuyển hướng slug cũ trả 308 thay vì 301, cùng nghĩa "chuyển hướng vĩnh viễn") | Không có lỗi mới. Phần BE: 176 test tự động đạt, 38 bước chạy thật trên SQL Server đạt |

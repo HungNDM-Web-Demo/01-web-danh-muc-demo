@@ -37,7 +37,7 @@ Mật khẩu: giá trị `DEMO_PASSWORD` trong `.env`, hoặc bấm "Đăng nh�
 | :---: | :--- | :--- | :--- |
 | 1 | Nhân viên kinh doanh | Đăng nhập nhanh vai trò Nhân viên; trang Quản lý demo mở ra với thẻ tổng hợp: 5 Hoàn thiện, 7 Demo được, 4 Đang làm, 2 Mới tạo | Nhìn một màn hình biết ngay demo nào mang đi gặp khách được, không phải hỏi đội dev |
 | 2 | Nhân viên kinh doanh | Lọc F&B, mở POS Quán Cafe; khung "Thông tin nội bộ" hiện mật khẩu, kịch bản 12 bước, câu hỏi khách hay hỏi | 5 phút trước buổi gặp là ôn xong kịch bản; nhân viên mới cũng trình bày được |
-| 3 | Khách | Mở trang danh mục ở cửa sổ ẩn danh: 13 thẻ, 5 demo nổi bật đứng đầu, 2 thẻ "Sắp ra mắt" ở cuối | Một link duy nhất, không cần đăng nhập, khách thấy toàn bộ giải pháp công ty có |
+| 3 | Khách | Mở trang danh mục ở cửa sổ ẩn danh: 13 thẻ, 5 demo nổi bật đứng đầu, 2 thẻ "Sắp ra mắt" ở cuối | Một link duy nhất, không cần đăng nhập, khách thấy toàn bộ giải pháp PUM có |
 | 4 | Khách | Bấm "F&B" còn 3 demo; gõ "qr goi mon" (không dấu) còn đúng Menu QR Gọi món | Lọc theo ngành, gõ không dấu vẫn tìm đúng; xem tốt trên điện thoại |
 | 5 | Khách | Mở chi tiết POS Quán Cafe: xem ảnh phóng to, tính năng, bảng tài khoản; bấm "Xem demo", đăng nhập nhanh vai trò Thu ngân | Từ danh mục tới demo chạy thật chỉ 2 lần bấm; trang công khai không lộ mật khẩu |
 | 6 | Khách | Bấm "Dịch vụ": thấy Quản lý Phòng khám gắn nhãn "Sắp ra mắt", không có nút Xem demo | Khách thấy cả lộ trình sản phẩm; demo chưa xong không bị bấm nhầm trước mặt khách |

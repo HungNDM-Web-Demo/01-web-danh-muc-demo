@@ -13,13 +13,13 @@
 | Ngành / loại khách hàng | Nội bộ: trang trình bày mọi demo cho khách hàng |
 | Loại sản phẩm | Website (FE là chính) + trang quản trị danh sách demo |
 | Ý tưởng gốc | 0.1 · Trang danh mục demo (`ZDOCS/02-KE-HOACH/DANH-SACH-Y-TUONG.md`) |
-| Người phụ trách | |
-| Trạng thái | Có tài liệu nghiệp vụ (SRS, use case, kịch bản demo, kịch bản kiểm thử), chưa code |
+| Người phụ trách | Mạnh Hùng (Pum) |
+| Trạng thái | Đã code BE + FE, chạy được cả hai chế độ (dữ liệu mẫu và BE thật); kết quả kiểm thử xem `05-KICH-BAN-KIEM-THU.md` §3 |
 
 ## 2. Vấn đề của khách hàng
 
 - Khi gặp khách, mất thời gian tìm đúng link demo và tài khoản đăng nhập
-- Các demo nằm rải rác, khách không thấy được toàn bộ giải pháp công ty có
+- Các demo nằm rải rác, khách không thấy được toàn bộ giải pháp PUM có
 - Sales không biết demo nào đang chạy được, demo nào còn đang làm
 
 ## 3. Giải pháp demo thể hiện

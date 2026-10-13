@@ -1,0 +1,6676 @@
+{
+  "$comment": "Dữ liệu mẫu nghiệp vụ của Danh mục Demo: nguồn duy nhất cho FE mock và BE DemoDataSeeder. Ngày tháng ghi tương đối (daysAgo), quy đổi theo hôm nay khi nạp. Ràng buộc test: xem docs/05-KICH-BAN-KIEM-THU.md §1. visitStats sinh bằng scripts/sinh-visit-stats (xác định, chạy lại cho cùng kết quả).",
+  "industries": [
+    {
+      "code": 1,
+      "name": "F&B",
+      "slug": "fnb",
+      "icon": "UtensilsCrossed",
+      "color": "#EA580C",
+      "sortOrder": 1,
+      "description": "Nhà hàng, quán cafe, trà sữa, quán nhậu"
+    },
+    {
+      "code": 2,
+      "name": "Bán lẻ",
+      "slug": "ban-le",
+      "icon": "ShoppingBag",
+      "color": "#2563EB",
+      "sortOrder": 2,
+      "description": "Cửa hàng, tạp hóa, mini mart, shop online, kho hàng"
+    },
+    {
+      "code": 3,
+      "name": "Dịch vụ",
+      "slug": "dich-vu",
+      "icon": "CalendarCheck",
+      "color": "#DB2777",
+      "sortOrder": 3,
+      "description": "Spa, salon, phòng khám, sân thể thao, dịch vụ đặt lịch"
+    },
+    {
+      "code": 4,
+      "name": "Giáo dục",
+      "slug": "giao-duc",
+      "icon": "GraduationCap",
+      "color": "#7C3AED",
+      "sortOrder": 4,
+      "description": "Trung tâm ngoại ngữ, dạy thêm, đào tạo"
+    },
+    {
+      "code": 5,
+      "name": "Doanh nghiệp",
+      "slug": "doanh-nghiep",
+      "icon": "Building2",
+      "color": "#0F766E",
+      "sortOrder": 5,
+      "description": "Quản trị nội bộ: khách hàng, nhân sự, công việc"
+    },
+    {
+      "code": 6,
+      "name": "Bất động sản",
+      "slug": "bat-dong-san",
+      "icon": "House",
+      "color": "#B45309",
+      "sortOrder": 6,
+      "description": "Cho thuê phòng, căn hộ, quản lý tòa nhà"
+    },
+    {
+      "code": 7,
+      "name": "Vận tải",
+      "slug": "van-tai",
+      "icon": "Truck",
+      "color": "#0369A1",
+      "sortOrder": 7,
+      "description": "Vận đơn, đội xe, đặt vé"
+    },
+    {
+      "code": 8,
+      "name": "Website",
+      "slug": "website",
+      "icon": "Globe",
+      "color": "#4F46E5",
+      "sortOrder": 8,
+      "description": "Website giới thiệu, landing page, trang danh mục"
+    },
+    {
+      "code": 9,
+      "name": "App di động",
+      "slug": "app-di-dong",
+      "icon": "Smartphone",
+      "color": "#16A34A",
+      "sortOrder": 9,
+      "description": "Ứng dụng cho khách hàng và nhân viên trên điện thoại"
+    },
+    {
+      "code": 10,
+      "name": "AI",
+      "slug": "ai",
+      "icon": "Bot",
+      "color": "#9333EA",
+      "sortOrder": 10,
+      "description": "Chatbot, trợ lý AI, tự động hóa"
+    },
+    {
+      "code": 11,
+      "name": "Ngành khác",
+      "slug": "nganh-khac",
+      "icon": "Shapes",
+      "color": "#475569",
+      "sortOrder": 11,
+      "description": "Các giải pháp chuyên biệt khác"
+    }
+  ],
+  "demos": [
+    {
+      "number": 1,
+      "projectCode": "web-danh-muc-demo",
+      "name": "Danh mục Demo",
+      "slug": "danh-muc-demo",
+      "industry": "website",
+      "ideaCode": "0.1",
+      "targetCustomers": "Đội kinh doanh và khách hàng của công ty",
+      "problemSolved": "Khi gặp khách, nhân viên mất thời gian tìm đúng link demo và tài khoản; các demo nằm rải rác nên khách không thấy hết giải pháp công ty có.",
+      "productType": "Website và trang quản trị",
+      "devices": "Điện thoại, máy tính",
+      "shortDescription": "Một trang giới thiệu toàn bộ demo của công ty: lọc theo ngành, tìm nhanh, mở demo chỉ với một chạm.",
+      "description": "Danh mục Demo gom mọi sản phẩm mẫu của công ty vào một đường dẫn duy nhất. Khách lọc theo ngành, xem ảnh và mở demo chạy thật ngay trên điện thoại. Nhân viên kinh doanh có khu thông tin nội bộ với kịch bản trình bày, câu hỏi khách hay hỏi và nút sao chép tài khoản gửi khách qua Zalo.",
+      "features": [
+        "Lưới demo có ảnh, lọc theo ngành",
+        "Tìm kiếm gõ không dấu vẫn ra",
+        "Trang chi tiết có thư viện ảnh phóng to",
+        "Thông tin nội bộ cho nhân viên kinh doanh",
+        "Sao chép link và tài khoản gửi khách",
+        "Thống kê lượt xem, lượt mở demo"
+      ],
+      "keywords": [
+        "danh mục",
+        "catalog",
+        "giới thiệu sản phẩm"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Chính là trang này. Không bật hiển thị để tránh khách mở vòng lặp danh mục trong danh mục.",
+      "demoScript": "Mở danh mục trên điện thoại, lọc theo ngành của khách, mở chi tiết rồi bấm Xem demo. Kết thúc bằng nút Sao chép gửi khách.",
+      "devStatus": "HoanThien",
+      "isVisible": false,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": null,
+      "createdDaysAgo": 30,
+      "updatedDaysAgo": 1,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt thông tin công ty"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý",
+          "purpose": "Thêm demo, ảnh chụp, trạng thái, sắp xếp"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Nhân viên kinh doanh",
+          "purpose": "Thông tin nội bộ, sao chép gửi khách"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Danh mục có tự cập nhật khi có demo mới không?",
+          "answer": "Quản lý thêm demo trên trang quản trị, trang công khai cập nhật trong vòng một phút."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Trang danh mục trên máy tính",
+          "layout": "catalog",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 139348
+        },
+        {
+          "file": "2.webp",
+          "caption": "Trang chi tiết demo có thư viện ảnh",
+          "layout": "detail",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 111822
+        },
+        {
+          "file": "3.webp",
+          "caption": "Quản lý demo với thẻ tổng hợp",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 98784
+        },
+        {
+          "file": "4.webp",
+          "caption": "Thống kê lượt xem và lượt mở demo",
+          "layout": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 77942
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 30
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 28
+        },
+        {
+          "from": "DangLam",
+          "to": "HoanThien",
+          "daysAgo": 3
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "projectCode": "fnb-pos-cafe",
+      "name": "POS Quán Cafe",
+      "slug": "pos-quan-cafe",
+      "industry": "fnb",
+      "ideaCode": "1.1",
+      "targetCustomers": "Quán cafe, trà sữa từ 1 đến 5 chi nhánh",
+      "problemSolved": "Ghi order bằng giấy dễ nhầm size, topping; cuối ca đối soát tiền mặt lâu và hay lệch; chủ quán không biết món nào bán chạy, giờ nào đông khách.",
+      "productType": "Màn hình bán hàng trên tablet và web quản lý",
+      "devices": "Tablet, máy tính",
+      "shortDescription": "Bán hàng tại quầy nhanh cho quán cafe, trà sữa: chọn size, topping, in bill, chốt ca không lệch tiền.",
+      "description": "Thu ngân chạm vài lần là xong một đơn có đủ size, topping, mức đường đá; tiền thối tự tính, bill in rõ từng tùy chọn để quầy pha chế làm đúng. Cuối ca hệ thống tự tính tiền mặt phải có và gắn cờ ca lệch. Chủ quán xem doanh thu theo giờ, món bán chạy ngay trên điện thoại.",
+      "features": [
+        "Chọn món, size, topping, mức đường đá trong vài chạm",
+        "Giảm giá, voucher, khuyến mãi theo khung giờ",
+        "Thanh toán tiền mặt và chuyển khoản QR",
+        "In bill khổ 80 mm",
+        "Mở ca, chốt ca, đối soát tiền mặt",
+        "Báo cáo doanh thu, món bán chạy, giờ cao điểm"
+      ],
+      "keywords": [
+        "cafe",
+        "trà sữa",
+        "bán hàng tại quầy",
+        "thu ngân",
+        "order"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Demo chủ lực ngành F&B. Trước buổi gặp nên đặt lại dữ liệu để có số liệu 90 ngày tính tới hôm nay. Voucher mẫu GIAM20K.",
+      "demoScript": "Quản lý mở Tổng quan → đổi sang Thu ngân mở ca → bán trà sữa size L có topping → thanh toán tiền mặt, in bill → đơn thứ hai dùng voucher, trả bằng QR → báo hết trân châu → chốt ca lệch tiền → Quản lý xem ca lệch và báo cáo.",
+      "devStatus": "HoanThien",
+      "isVisible": true,
+      "isFeatured": true,
+      "firstPublishedDaysAgo": 60,
+      "createdDaysAgo": 120,
+      "updatedDaysAgo": 2,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, thương hiệu của quán"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý quán",
+          "purpose": "Thực đơn, khuyến mãi, kiểm tra ca, báo cáo"
+        },
+        {
+          "username": "thungan",
+          "roleName": "Thu ngân",
+          "purpose": "Mở ca, bán hàng, thanh toán, chốt ca"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có in được ra máy in bill nhiệt không?",
+          "answer": "Demo in qua trình duyệt khổ 80 mm; bản triển khai kết nối trực tiếp máy in bill và in phiếu pha chế cho quầy bar."
+        },
+        {
+          "question": "Mất mạng có bán được không?",
+          "answer": "Bản demo cần mạng. Bản triển khai có thể làm chế độ bán offline rồi đồng bộ khi có mạng, cần khảo sát thêm."
+        },
+        {
+          "question": "Có quản lý nhiều chi nhánh không?",
+          "answer": "Bản triển khai có: mỗi chi nhánh dữ liệu riêng, chủ quán xem gộp."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Màn hình bán hàng trên tablet",
+          "layout": "pos",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 99256
+        },
+        {
+          "file": "2.webp",
+          "caption": "Chọn size, topping, mức đường đá",
+          "layout": "dialog",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 85834
+        },
+        {
+          "file": "3.webp",
+          "caption": "Thanh toán tiền mặt và chuyển khoản QR",
+          "layout": "payment",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 90156
+        },
+        {
+          "file": "4.webp",
+          "caption": "Chốt ca và đối soát tiền mặt",
+          "layout": "form",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 74326
+        },
+        {
+          "file": "5.webp",
+          "caption": "Tổng quan doanh thu trong ngày",
+          "layout": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 81830
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 120
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 110
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 60
+        },
+        {
+          "from": "DemoDuoc",
+          "to": "HoanThien",
+          "daysAgo": 20
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "projectCode": "fnb-quan-ly-nha-hang",
+      "name": "Quản lý Nhà hàng",
+      "slug": "quan-ly-nha-hang",
+      "industry": "fnb",
+      "ideaCode": "1.2",
+      "targetCustomers": "Nhà hàng, quán ăn có phục vụ tại bàn",
+      "problemSolved": "Phục vụ chạy qua lại báo món cho bếp dễ sót món; không nắm được bàn nào trống; khách đòi tách, gộp hóa đơn thì tính sai; món ra chậm không ai theo dõi.",
+      "productType": "Web quản lý, tablet cho phục vụ và màn hình bếp",
+      "devices": "Tablet, màn hình bếp, máy tính",
+      "shortDescription": "Sơ đồ bàn trực quan, gọi món theo bàn gửi thẳng xuống bếp, tách gộp hóa đơn chính xác cho nhà hàng.",
+      "description": "Phục vụ mở bàn, gọi món trên tablet; món tự tách theo khu bếp nóng, bếp nguội, quầy bar và hiện ngay trên màn hình bếp kèm cảnh báo món chờ lâu. Thu ngân chuyển bàn, gộp bàn, tách hóa đơn theo món hoặc chia đều trong vài thao tác.",
+      "features": [
+        "Sơ đồ bàn theo khu vực, màu theo trạng thái",
+        "Gọi món trên tablet gửi thẳng xuống bếp",
+        "Màn hình bếp cảnh báo món chờ lâu",
+        "Chuyển bàn, gộp bàn, tách hóa đơn",
+        "Đặt bàn trước có tiền cọc"
+      ],
+      "keywords": [
+        "nhà hàng",
+        "quán ăn",
+        "bếp",
+        "gọi món",
+        "phục vụ bàn"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Mở hai tab cạnh nhau: tab phục vụ và tab bếp để thấy món chạy qua lại. Phí phục vụ 5%, VAT 8% là giả định, cần hỏi lại khách.",
+      "demoScript": "Phục vụ mở bàn T05, gọi 4 món → tab Bếp nhận món theo khu → báo xong → thu ngân tách hóa đơn hai người → thanh toán.",
+      "devStatus": "DemoDuoc",
+      "isVisible": true,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": 50,
+      "createdDaysAgo": 115,
+      "updatedDaysAgo": 6,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý",
+          "purpose": "Thực đơn, sơ đồ bàn, báo cáo"
+        },
+        {
+          "username": "phucvu",
+          "roleName": "Phục vụ",
+          "purpose": "Mở bàn, gọi món, chuyển gộp bàn"
+        },
+        {
+          "username": "bep",
+          "roleName": "Bếp",
+          "purpose": "Nhận món, báo xong"
+        },
+        {
+          "username": "thungan",
+          "roleName": "Thu ngân",
+          "purpose": "Tách hóa đơn, thanh toán"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có in phiếu bếp ra máy in riêng từng khu không?",
+          "answer": "Bản triển khai in phiếu theo khu bếp nóng, bếp nguội, quầy bar ra máy in tương ứng."
+        },
+        {
+          "question": "Có kết nối GrabFood, ShopeeFood không?",
+          "answer": "Có thể tích hợp nhận đơn về chung màn hình bếp, cần khảo sát API của từng nền tảng."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Sơ đồ bàn theo khu vực",
+          "layout": "floor",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 109608
+        },
+        {
+          "file": "2.webp",
+          "caption": "Gọi món theo bàn trên tablet",
+          "layout": "pos",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 101358
+        },
+        {
+          "file": "3.webp",
+          "caption": "Màn hình bếp theo khu chế biến",
+          "layout": "kanban",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 94656
+        },
+        {
+          "file": "4.webp",
+          "caption": "Tách hóa đơn theo món",
+          "layout": "payment",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 87686
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 115
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 100
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 50
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "projectCode": "fnb-menu-qr",
+      "name": "Menu QR Gọi món",
+      "slug": "menu-qr-goi-mon",
+      "industry": "fnb",
+      "ideaCode": "1.3",
+      "targetCustomers": "Nhà hàng, quán cafe, quán nhậu muốn khách tự gọi món",
+      "problemSolved": "Giờ cao điểm thiếu người nhận order; menu giấy cũ, đổi giá phải in lại; khách chờ lâu mới gọi thêm món hoặc thanh toán được.",
+      "productType": "Web cho khách trên điện thoại và web quản lý",
+      "devices": "Điện thoại của khách, tablet, máy tính",
+      "shortDescription": "Khách quét QR tại bàn để xem menu có ảnh và tự gọi món, quán nhận đơn ngay, bớt chạy bàn giờ cao điểm.",
+      "description": "Mỗi bàn có một mã QR riêng. Khách quét bằng điện thoại, xem menu có ảnh, tự gọi món, gọi nhân viên hoặc yêu cầu thanh toán. Nhiều điện thoại cùng bàn gom chung một phiên. Quán nhận đơn theo thời gian thực, báo hết món một chạm và đổi giá không cần in lại menu.",
+      "features": [
+        "Mỗi bàn một mã QR, đổi được khi bị lộ",
+        "Menu có ảnh, báo hết món tức thì",
+        "Khách tự gọi món, gọi nhân viên, yêu cầu thanh toán",
+        "Màn hình nhận đơn theo thời gian thực",
+        "In QR theo bàn với 3 mẫu"
+      ],
+      "keywords": [
+        "qr",
+        "menu điện tử",
+        "tự gọi món",
+        "quán nhậu",
+        "nhà hàng"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Cần điện thoại mở được link (link online hoặc cùng wifi). Không có thì dùng chế độ thiết bị di động 390×844 trên trình duyệt.",
+      "demoScript": "Khách quét QR bàn B03, gọi 2 món → nhân viên xác nhận đơn đầu → khách gọi thêm từ điện thoại khác cùng bàn → yêu cầu thanh toán, hiện QR chuyển khoản.",
+      "devStatus": "DemoDuoc",
+      "isVisible": true,
+      "isFeatured": true,
+      "firstPublishedDaysAgo": 45,
+      "createdDaysAgo": 112,
+      "updatedDaysAgo": 4,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý",
+          "purpose": "Menu, bàn và mã QR, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Nhân viên",
+          "purpose": "Nhận đơn, xác nhận, phục vụ"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Khách có phải cài app không?",
+          "answer": "Không. Khách quét QR bằng camera điện thoại, menu mở ngay trên trình duyệt."
+        },
+        {
+          "question": "Có bị khách ngoài quán đặt bậy không?",
+          "answer": "Đơn đầu tiên của mỗi bàn cần nhân viên xác nhận, mã QR đổi được ngay khi bị lộ."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Menu có ảnh trên điện thoại khách",
+          "layout": "mobile",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 59254
+        },
+        {
+          "file": "2.webp",
+          "caption": "Giỏ món và gửi đơn",
+          "layout": "mobile",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 51680
+        },
+        {
+          "file": "3.webp",
+          "caption": "Màn hình nhận đơn của quán",
+          "layout": "kanban",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 79818
+        },
+        {
+          "file": "4.webp",
+          "caption": "In mã QR theo bàn",
+          "layout": "grid",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 138868
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 112
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 95
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 45
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "projectCode": "retail-website-ban-hang",
+      "name": "Website Bán hàng",
+      "slug": "website-ban-hang",
+      "industry": "ban-le",
+      "ideaCode": "2.1",
+      "targetCustomers": "Cửa hàng thời trang, mỹ phẩm, đồ gia dụng bán online",
+      "problemSolved": "Bán qua Facebook, Zalo phải trả lời từng tin nhắn; không có nơi trưng bày đủ sản phẩm; đơn ghi Excel dễ sót; không theo dõi được tồn kho theo màu, size.",
+      "productType": "Website cho khách và trang quản trị",
+      "devices": "Điện thoại, máy tính",
+      "shortDescription": "Website bán hàng có giỏ hàng, biến thể màu size, đặt hàng COD và trang quản trị đơn hàng cho shop online.",
+      "description": "Khách xem sản phẩm theo danh mục, lọc theo màu, size, giá; thêm vào giỏ và đặt hàng COD hoặc chuyển khoản. Shop xác nhận đơn, in phiếu giao, theo dõi tồn kho từng biến thể và chạy mã giảm giá. Phí ship tự tính theo khu vực.",
+      "features": [
+        "Danh mục, bộ lọc, tìm kiếm sản phẩm",
+        "Biến thể màu, size và tồn kho từng biến thể",
+        "Giỏ hàng, đặt hàng COD hoặc chuyển khoản",
+        "Mã giảm giá, phí ship theo khu vực",
+        "Quản lý đơn hàng, in phiếu giao"
+      ],
+      "keywords": [
+        "thương mại điện tử",
+        "shop online",
+        "thời trang",
+        "bán hàng online",
+        "giỏ hàng"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Ngành mẫu là thời trang. Phí ship 20.000 ₫ nội thành, 35.000 ₫ tỉnh khác là giả định. Mã giảm giá mẫu GIAM10.",
+      "demoScript": "Khách tìm áo, chọn màu size, đặt COD trên điện thoại → nhân viên xác nhận đơn, in phiếu giao → quản lý xem doanh thu.",
+      "devStatus": "HoanThien",
+      "isVisible": true,
+      "isFeatured": true,
+      "firstPublishedDaysAgo": 70,
+      "createdDaysAgo": 118,
+      "updatedDaysAgo": 3,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt cửa hàng"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý",
+          "purpose": "Sản phẩm, khuyến mãi, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Nhân viên",
+          "purpose": "Xử lý đơn hàng"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có kết nối đơn vị vận chuyển không?",
+          "answer": "Demo giả lập. Bản triển khai kết nối GHN, GHTK, Viettel Post để lấy phí ship và tạo vận đơn."
+        },
+        {
+          "question": "Có thanh toán online không?",
+          "answer": "Demo có COD và chuyển khoản hiển thị QR. Bản triển khai có thể nối VNPay, MoMo."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Trang chủ cửa hàng",
+          "layout": "shop",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 80496
+        },
+        {
+          "file": "2.webp",
+          "caption": "Chi tiết sản phẩm với màu và size",
+          "layout": "shopDetail",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 68024
+        },
+        {
+          "file": "3.webp",
+          "caption": "Giỏ hàng và đặt hàng",
+          "layout": "form",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 73094
+        },
+        {
+          "file": "4.webp",
+          "caption": "Quản lý đơn hàng",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 106968
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 118
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 108
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 70
+        },
+        {
+          "from": "DemoDuoc",
+          "to": "HoanThien",
+          "daysAgo": 25
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "projectCode": "retail-landing-page",
+      "name": "Landing Page Bán hàng",
+      "slug": "landing-page-ban-hang",
+      "industry": "ban-le",
+      "ideaCode": "2.2",
+      "targetCustomers": "Shop bán một sản phẩm chủ lực, chạy quảng cáo",
+      "problemSolved": "Chạy quảng cáo nhưng trang đích sơ sài, tỉ lệ chốt đơn thấp; đơn đổ về nhiều kênh khó gom; không biết nguồn quảng cáo nào ra đơn.",
+      "productType": "Landing page và web quản lý đơn",
+      "devices": "Điện thoại, máy tính",
+      "shortDescription": "Trang đích bán một sản phẩm chạy quảng cáo: đếm ngược khuyến mãi, chọn combo, form đặt hàng COD.",
+      "description": "",
+      "features": [
+        "Trang dài thuyết phục, đánh giá khách hàng",
+        "Đếm ngược khuyến mãi, chọn combo",
+        "Form đặt hàng COD, ghi nhận nguồn quảng cáo"
+      ],
+      "keywords": [
+        "landing page",
+        "quảng cáo",
+        "cod",
+        "combo"
+      ],
+      "requiresLogin": false,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Mới tạo, chưa có giao diện. Phần khách xem không cần đăng nhập.",
+      "demoScript": "",
+      "devStatus": "MoiTao",
+      "isVisible": false,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": null,
+      "createdDaysAgo": 8,
+      "updatedDaysAgo": 8,
+      "accounts": [],
+      "faqs": [],
+      "screenshots": [],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 8
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "projectCode": "retail-pos-ban-le",
+      "name": "POS Cửa hàng Bán lẻ",
+      "slug": "pos-cua-hang-ban-le",
+      "industry": "ban-le",
+      "ideaCode": "2.3",
+      "targetCustomers": "Tạp hóa, mini mart, cửa hàng tiện lợi",
+      "problemSolved": "Phải nhớ giá hàng nghìn mặt hàng; tính tiền chậm, khách xếp hàng; không biết tồn kho thật; hàng sắp hết không kiểm soát được.",
+      "productType": "Màn hình tính tiền có máy quét mã vạch và web quản lý",
+      "devices": "Máy tính tiền, máy quét mã vạch, máy tính",
+      "shortDescription": "Tính tiền quét mã vạch nhanh cho tạp hóa, mini mart: đơn vị thùng lốc, đổi trả, tồn kho, lợi nhuận.",
+      "description": "Thu ngân quét mã vạch là ra giá, giữ nhiều hóa đơn chờ cùng lúc, gợi ý mệnh giá tiền khách đưa. Mỗi mặt hàng có nhiều đơn vị tính như thùng, lốc, chai với mã vạch và giá riêng. Chủ cửa hàng theo dõi tồn kho, giá vốn bình quân và lợi nhuận gộp mỗi ngày.",
+      "features": [
+        "Quét mã vạch, nhiều hóa đơn chờ",
+        "Đơn vị tính quy đổi thùng, lốc, chai",
+        "Đổi trả hàng theo hóa đơn",
+        "Tồn kho, cảnh báo sắp hết",
+        "Báo cáo doanh thu, lợi nhuận gộp"
+      ],
+      "keywords": [
+        "tạp hóa",
+        "mini mart",
+        "mã vạch",
+        "cửa hàng tiện lợi",
+        "tính tiền"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Máy quét mã vạch hoạt động như bàn phím, có thể demo bằng cách gõ mã vạch. Thu ngân giảm tối đa 5%.",
+      "demoScript": "Thu ngân quét 5 mặt hàng, có 1 thùng nước → khách đổi một lốc sữa → chủ cửa hàng xem tồn kho và lợi nhuận gộp hôm nay.",
+      "devStatus": "DemoDuoc",
+      "isVisible": true,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": 40,
+      "createdDaysAgo": 110,
+      "updatedDaysAgo": 9,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Chủ cửa hàng",
+          "purpose": "Hàng hóa, giá, nhập hàng, báo cáo"
+        },
+        {
+          "username": "thungan",
+          "roleName": "Thu ngân",
+          "purpose": "Tính tiền, đổi trả, chốt ca"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Dùng máy quét mã vạch loại nào?",
+          "answer": "Mọi máy quét có chế độ bàn phím (USB hoặc Bluetooth) đều dùng được, không cần cài thêm."
+        },
+        {
+          "question": "Có quản lý hạn sử dụng không?",
+          "answer": "Demo ước tính theo nguyên tắc nhập trước bán trước. Bản triển khai quản lý theo lô và hạn sử dụng."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Màn hình tính tiền quét mã vạch",
+          "layout": "pos",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 89222
+        },
+        {
+          "file": "2.webp",
+          "caption": "Đổi trả hàng theo hóa đơn",
+          "layout": "form",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 83884
+        },
+        {
+          "file": "3.webp",
+          "caption": "Hàng hóa và tồn kho",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 95730
+        },
+        {
+          "file": "4.webp",
+          "caption": "Báo cáo doanh thu và lợi nhuận",
+          "layout": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 88028
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 110
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 90
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 40
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "projectCode": "retail-quan-ly-kho",
+      "name": "Quản lý Kho",
+      "slug": "quan-ly-kho",
+      "industry": "ban-le",
+      "ideaCode": "2.4",
+      "targetCustomers": "Doanh nghiệp thương mại, nhà phân phối có 1–3 kho",
+      "problemSolved": "Tồn kho trên sổ khác thực tế; nhập xuất ghi Excel khó truy vết; không biết hàng nào tồn lâu, hàng nào sắp hết; kiểm kê mất nhiều ngày.",
+      "productType": "Web quản lý",
+      "devices": "Máy tính, tablet",
+      "shortDescription": "Quản lý nhập, xuất, chuyển kho, kiểm kê và tồn kho theo thời gian thực cho doanh nghiệp có 1–3 kho.",
+      "description": "Thủ kho lập phiếu nhập, xuất, chuyển kho; quản lý duyệt rồi tồn kho mới thay đổi. Hàng trên phiếu chờ duyệt được giữ chỗ. Kiểm kê mù từng nhóm hàng, chênh lệch lớn phải ghi nguyên nhân. Thẻ kho truy vết mọi giao dịch của một mặt hàng.",
+      "features": [
+        "Phiếu nhập, xuất, chuyển kho có duyệt",
+        "Tồn kho thời gian thực từng kho",
+        "Kiểm kê, xử lý chênh lệch",
+        "Thẻ kho truy vết từng giao dịch",
+        "Báo cáo xuất nhập tồn"
+      ],
+      "keywords": [
+        "kho hàng",
+        "tồn kho",
+        "xuất nhập tồn",
+        "kiểm kê",
+        "nhà phân phối"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Người duyệt phiếu phải khác người lập. Giá vốn bình quân tính riêng từng kho.",
+      "demoScript": "Thủ kho lập phiếu nhập → quản lý duyệt, tồn tăng → chuyển kho sang Biên Hòa → kiểm kê lệch, ghi nguyên nhân → xem thẻ kho.",
+      "devStatus": "DemoDuoc",
+      "isVisible": true,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": 35,
+      "createdDaysAgo": 108,
+      "updatedDaysAgo": 12,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý kho",
+          "purpose": "Duyệt phiếu, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Thủ kho",
+          "purpose": "Lập phiếu, kiểm kê"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có quét mã vạch khi nhập xuất không?",
+          "answer": "Demo nhập tay. Bản triển khai dùng máy quét hoặc app điện thoại để quét khi nhập, xuất, kiểm kê."
+        },
+        {
+          "question": "Có quản lý vị trí kệ không?",
+          "answer": "Demo chưa có. Bản triển khai thêm vị trí kệ, lô, hạn sử dụng theo nhu cầu."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Tồn kho theo từng kho",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 92036
+        },
+        {
+          "file": "2.webp",
+          "caption": "Phiếu nhập kho chờ duyệt",
+          "layout": "form",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 87326
+        },
+        {
+          "file": "3.webp",
+          "caption": "Kiểm kê và chênh lệch",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 93660
+        },
+        {
+          "file": "4.webp",
+          "caption": "Báo cáo xuất nhập tồn",
+          "layout": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 85058
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 108
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 85
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 35
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "projectCode": "service-spa-salon",
+      "name": "Quản lý Spa Salon",
+      "slug": "quan-ly-spa-salon",
+      "industry": "dich-vu",
+      "ideaCode": "3.1",
+      "targetCustomers": "Spa, salon tóc, tiệm nail",
+      "problemSolved": "Đặt lịch qua điện thoại dễ trùng giờ, trùng nhân viên; gói liệu trình theo dõi bằng sổ; hoa hồng nhân viên tính tay cuối tháng.",
+      "productType": "Web quản lý và trang đặt lịch cho khách",
+      "devices": "Tablet, điện thoại, máy tính",
+      "shortDescription": "Lịch hẹn theo kỹ thuật viên, khách đặt lịch online, gói liệu trình tự trừ buổi và hoa hồng tính sẵn.",
+      "description": "Lễ tân nhìn lịch hẹn dạng lưới theo từng kỹ thuật viên, kéo thả để đổi giờ. Khách tự đặt lịch online, chỉ thấy khung giờ còn trống. Mỗi lần làm dịch vụ trong gói, hệ thống tự trừ buổi. Hoa hồng của kỹ thuật viên cộng dồn theo từng dịch vụ.",
+      "features": [
+        "Lịch hẹn dạng lưới theo nhân viên",
+        "Khách tự đặt lịch online",
+        "Gói liệu trình tự trừ buổi",
+        "Hoa hồng kỹ thuật viên theo dịch vụ",
+        "Hồ sơ khách và lịch sử dịch vụ"
+      ],
+      "keywords": [
+        "spa",
+        "salon tóc",
+        "nail",
+        "đặt lịch",
+        "làm đẹp"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Hoa hồng tính trên giá niêm yết, không trừ giảm giá: cần khách xác nhận. Không quản lý phòng, giường.",
+      "demoScript": "Khách đặt lịch online gội đầu dưỡng sinh → lễ tân xác nhận, check-in → kỹ thuật viên làm xong → thanh toán bằng gói, trừ buổi → xem hoa hồng.",
+      "devStatus": "DemoDuoc",
+      "isVisible": true,
+      "isFeatured": true,
+      "firstPublishedDaysAgo": 55,
+      "createdDaysAgo": 105,
+      "updatedDaysAgo": 5,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Chủ tiệm",
+          "purpose": "Dịch vụ, gói, hoa hồng, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Lễ tân",
+          "purpose": "Lịch hẹn, check-in, thanh toán"
+        },
+        {
+          "username": "kythuatvien",
+          "roleName": "Kỹ thuật viên",
+          "purpose": "Xem lịch và hoa hồng của mình"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có nhắc lịch cho khách qua Zalo không?",
+          "answer": "Demo giả lập. Bản triển khai gửi nhắc lịch qua Zalo OA hoặc SMS."
+        },
+        {
+          "question": "Hoa hồng tính thế nào?",
+          "answer": "Theo tỉ lệ cấu hình cho từng dịch vụ và gói; bản triển khai điều chỉnh đúng chính sách của tiệm."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Lịch hẹn theo kỹ thuật viên",
+          "layout": "calendar",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 94202
+        },
+        {
+          "file": "2.webp",
+          "caption": "Khách đặt lịch trên điện thoại",
+          "layout": "mobile",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 49982
+        },
+        {
+          "file": "3.webp",
+          "caption": "Gói liệu trình và số buổi còn lại",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 96498
+        },
+        {
+          "file": "4.webp",
+          "caption": "Bảng hoa hồng tháng",
+          "layout": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 87354
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 105
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 92
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 55
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "projectCode": "service-phong-kham",
+      "name": "Quản lý Phòng khám",
+      "slug": "quan-ly-phong-kham",
+      "industry": "dich-vu",
+      "ideaCode": "3.2",
+      "targetCustomers": "Phòng khám tư, nha khoa",
+      "problemSolved": "Bệnh nhân chờ lâu, xếp số thủ công; hồ sơ giấy khó tra lịch sử khám; quên nhắc tái khám nên mất khách.",
+      "productType": "Web quản lý và trang đặt lịch khám",
+      "devices": "Máy tính, tablet, điện thoại",
+      "shortDescription": "Đặt lịch khám, hàng chờ, hồ sơ bệnh nhân, phiếu khám và nhắc tái khám cho phòng khám tư, nha khoa.",
+      "description": "Bệnh nhân đặt lịch khám online theo bác sĩ. Lễ tân tiếp đón, xếp hàng chờ có ưu tiên. Bác sĩ xem lịch sử khám, ghi phiếu khám, kê đơn và lập kế hoạch điều trị nhiều buổi. Hệ thống nhắc tái khám đúng hẹn.",
+      "features": [
+        "Đặt lịch khám online theo bác sĩ",
+        "Tiếp đón và hàng chờ",
+        "Hồ sơ bệnh nhân, lịch sử khám",
+        "Phiếu khám, đơn thuốc",
+        "Nhắc tái khám"
+      ],
+      "keywords": [
+        "phòng khám",
+        "nha khoa",
+        "bệnh nhân",
+        "đặt lịch khám"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Đang làm giao diện tiếp đón. Dữ liệu bệnh nhân hoàn toàn giả, không phải bệnh án điện tử theo chuẩn Bộ Y tế.",
+      "demoScript": "",
+      "devStatus": "DangLam",
+      "isVisible": true,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": null,
+      "createdDaysAgo": 100,
+      "updatedDaysAgo": 2,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý",
+          "purpose": "Dịch vụ, bác sĩ, báo cáo"
+        },
+        {
+          "username": "letan",
+          "roleName": "Lễ tân",
+          "purpose": "Tiếp đón, hàng chờ, thu phí"
+        },
+        {
+          "username": "bacsi",
+          "roleName": "Bác sĩ",
+          "purpose": "Khám, kê đơn, kế hoạch điều trị"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có kết nối bảo hiểm y tế không?",
+          "answer": "Không nằm trong phạm vi demo. Bản triển khai cần khảo sát yêu cầu liên thông của cơ sở."
+        }
+      ],
+      "screenshots": [],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 100
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 20
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "projectCode": "service-cho-thue-san",
+      "name": "Cho thuê Sân thể thao",
+      "slug": "cho-thue-san-the-thao",
+      "industry": "dich-vu",
+      "ideaCode": "3.3",
+      "targetCustomers": "Sân pickleball, bóng đá mini, cầu lông, tennis",
+      "problemSolved": "Đặt sân qua tin nhắn dễ trùng lịch; giá giờ cao điểm, cuối tuần tính tay; khách đặt cố định hằng tuần khó quản lý.",
+      "productType": "Web quản lý và trang đặt sân cho khách",
+      "devices": "Điện thoại, tablet, máy tính",
+      "shortDescription": "Lịch sân theo khung giờ, khách đặt sân online, bảng giá giờ cao điểm, đặt cố định và đặt cọc tự động.",
+      "description": "Khách xem sân trống theo khung giờ và tự đặt online, giữ chỗ 15 phút chờ đặt cọc. Giá tự tính theo khung giờ và ngày trong tuần. Khách quen đặt cố định hằng tuần được giảm giá. Nhân viên bán kèm nước, thuê vợt ngay trên lượt đặt.",
+      "features": [
+        "Lịch sân dạng lưới theo khung giờ",
+        "Khách xem sân trống, đặt online",
+        "Bảng giá theo khung giờ và ngày",
+        "Đặt cố định hằng tuần",
+        "Đặt cọc, hoàn cọc theo chính sách"
+      ],
+      "keywords": [
+        "pickleball",
+        "bóng đá mini",
+        "cầu lông",
+        "tennis",
+        "đặt sân"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Cọc 50%, hoàn 100% nếu hủy trước 24 giờ là giả định, cần chủ sân xác nhận. Chưa có ca thu ngân.",
+      "demoScript": "Khách xem sân trống tối nay, đặt sân pickleball 2 giờ, đặt cọc → nhân viên xác nhận cọc → khách đến nhận sân, mua thêm nước → thanh toán phần còn lại.",
+      "devStatus": "DemoDuoc",
+      "isVisible": true,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": 30,
+      "createdDaysAgo": 102,
+      "updatedDaysAgo": 7,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Chủ sân",
+          "purpose": "Sân, bảng giá, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Nhân viên",
+          "purpose": "Nhận đặt sân, thu tiền, bán kèm"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Khách có thanh toán cọc online được không?",
+          "answer": "Demo giả lập chuyển khoản, nhân viên xác nhận. Bản triển khai nối cổng thanh toán để tự xác nhận."
+        },
+        {
+          "question": "Có bán vé chơi ghép theo người không?",
+          "answer": "Demo chưa có, có thể bổ sung cho sân pickleball, cầu lông."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Lịch sân theo khung giờ",
+          "layout": "calendar",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 76064
+        },
+        {
+          "file": "2.webp",
+          "caption": "Khách đặt sân trên điện thoại",
+          "layout": "mobile",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 55176
+        },
+        {
+          "file": "3.webp",
+          "caption": "Bảng giá theo khung giờ",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 76304
+        },
+        {
+          "file": "4.webp",
+          "caption": "Báo cáo công suất sân",
+          "layout": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 91572
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 102
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 80
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 30
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "projectCode": "edu-trung-tam-ngoai-ngu",
+      "name": "Quản lý Trung tâm Ngoại ngữ",
+      "slug": "quan-ly-trung-tam-ngoai-ngu",
+      "industry": "giao-duc",
+      "ideaCode": "4.1",
+      "targetCustomers": "Trung tâm ngoại ngữ, trung tâm dạy thêm",
+      "problemSolved": "Xếp lớp, lịch học bằng Excel; điểm danh bằng giấy; không rõ ai đã đóng, ai còn nợ học phí; phụ huynh không nắm được tình hình học.",
+      "productType": "Web quản lý và cổng phụ huynh trên điện thoại",
+      "devices": "Máy tính, điện thoại",
+      "shortDescription": "Xếp lớp, lịch học, điểm danh trên điện thoại, học phí và nhắc nợ, cổng phụ huynh cho trung tâm ngoại ngữ.",
+      "description": "Giáo vụ ghi danh học viên vào lớp, thu học phí theo khóa hoặc tháng. Giáo viên điểm danh, nhận xét ngay trên điện thoại. Phụ huynh xem điểm danh, điểm và học phí còn nợ trên cổng riêng.",
+      "features": [
+        "Khóa học, lớp, lịch học",
+        "Giáo viên điểm danh trên điện thoại",
+        "Học phí, phiếu thu, nhắc nợ",
+        "Nhận xét và điểm kiểm tra",
+        "Cổng phụ huynh"
+      ],
+      "keywords": [
+        "tiếng anh",
+        "trung tâm",
+        "dạy thêm",
+        "học viên",
+        "học phí"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Đang làm phần học phí. Ưu đãi không cộng dồn, bảo lưu tối đa 180 ngày là giả định.",
+      "demoScript": "",
+      "devStatus": "DangLam",
+      "isVisible": true,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": null,
+      "createdDaysAgo": 98,
+      "updatedDaysAgo": 4,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý",
+          "purpose": "Khóa học, lớp, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Giáo vụ",
+          "purpose": "Ghi danh, xếp lớp, thu học phí"
+        },
+        {
+          "username": "giaovien",
+          "roleName": "Giáo viên",
+          "purpose": "Điểm danh, nhận xét, nhập điểm"
+        },
+        {
+          "username": "phuhuynh",
+          "roleName": "Phụ huynh",
+          "purpose": "Xem điểm danh, điểm, học phí"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có học trực tuyến không?",
+          "answer": "Không nằm trong phạm vi demo; có thể tích hợp Zoom, Google Meet khi triển khai."
+        }
+      ],
+      "screenshots": [],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 98
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 15
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "projectCode": "biz-crm",
+      "name": "CRM Quản lý Khách hàng",
+      "slug": "crm-quan-ly-khach-hang",
+      "industry": "doanh-nghiep",
+      "ideaCode": "5.1",
+      "targetCustomers": "Doanh nghiệp B2B, B2C có đội kinh doanh",
+      "problemSolved": "Khách hàng nằm trong danh bạ từng sales, nghỉ việc là mất; không biết lead đang ở bước nào; quên chăm sóc lại khách; quản lý không đo được hiệu quả từng sales.",
+      "productType": "Web quản lý",
+      "devices": "Máy tính, điện thoại",
+      "shortDescription": "Quản lý lead, khách hàng, pipeline Kanban và lịch chăm sóc; sales chỉ thấy khách của mình, quản lý thấy toàn đội.",
+      "description": "Lead mới được phân cho sales, mỗi cơ hội đi qua các giai đoạn trên bảng Kanban kéo thả. Hệ thống nhắc việc chăm sóc, lưu lịch sử tương tác và báo giá. Trưởng phòng xem doanh số, tỉ lệ chuyển đổi theo từng sales.",
+      "features": [
+        "Lead, khách hàng, người liên hệ",
+        "Pipeline cơ hội kéo thả",
+        "Lịch chăm sóc, nhắc việc",
+        "Báo giá gửi khách",
+        "Báo cáo doanh số, tỉ lệ chuyển đổi"
+      ],
+      "keywords": [
+        "crm",
+        "khách hàng",
+        "sales",
+        "kinh doanh",
+        "lead"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Có thêm tài khoản sales2 (không có nút đăng nhập nhanh) để demo hai sales không thấy khách của nhau.",
+      "demoScript": "Trưởng phòng phân lead cho sales → sales gọi tư vấn, tạo cơ hội → kéo qua các giai đoạn, gửi báo giá → chốt → xem báo cáo doanh số.",
+      "devStatus": "HoanThien",
+      "isVisible": true,
+      "isFeatured": true,
+      "firstPublishedDaysAgo": 65,
+      "createdDaysAgo": 96,
+      "updatedDaysAgo": 1,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Trưởng phòng kinh doanh",
+          "purpose": "Phân lead, xem toàn đội, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Nhân viên kinh doanh",
+          "purpose": "Lead và cơ hội của mình"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có nhập khách hàng từ Excel không?",
+          "answer": "Có, nhập lead từ file Excel theo mẫu, hệ thống báo dòng trùng số điện thoại hoặc email."
+        },
+        {
+          "question": "Có gửi email hàng loạt không?",
+          "answer": "Demo chưa gửi thật. Bản triển khai nối dịch vụ email marketing."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Pipeline cơ hội dạng Kanban",
+          "layout": "kanban",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 113010
+        },
+        {
+          "file": "2.webp",
+          "caption": "Hồ sơ khách hàng và lịch sử tương tác",
+          "layout": "detail",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 99368
+        },
+        {
+          "file": "3.webp",
+          "caption": "Lịch chăm sóc khách hàng",
+          "layout": "calendar",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 73234
+        },
+        {
+          "file": "4.webp",
+          "caption": "Báo cáo doanh số theo sales",
+          "layout": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 77370
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 96
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 90
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 65
+        },
+        {
+          "from": "DemoDuoc",
+          "to": "HoanThien",
+          "daysAgo": 10
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "projectCode": "biz-hrm",
+      "name": "HRM Chấm công Tính lương",
+      "slug": "hrm-cham-cong-tinh-luong",
+      "industry": "doanh-nghiep",
+      "ideaCode": "5.2",
+      "targetCustomers": "Doanh nghiệp từ 20 đến 300 nhân viên",
+      "problemSolved": "Cuối tháng tổng hợp công từ máy chấm công ra Excel mất nhiều ngày; đơn nghỉ phép bằng giấy; tính lương thủ công dễ sai.",
+      "productType": "Web quản lý và giao diện điện thoại cho nhân viên",
+      "devices": "Máy tính, điện thoại",
+      "shortDescription": "Chấm công trên điện thoại, đơn nghỉ phép, bảng công tháng và bảng lương tự tính cho doanh nghiệp 20–300 người.",
+      "description": "Nhân viên chấm công và xin nghỉ ngay trên điện thoại, trưởng phòng duyệt. Nhân sự chốt bảng công tháng, hệ thống tự tính lương theo ngày công, phụ cấp, bảo hiểm, thuế và phát hành phiếu lương.",
+      "features": [
+        "Chấm công trên web, điện thoại",
+        "Đơn nghỉ phép và duyệt",
+        "Bảng công tháng",
+        "Bảng lương, phiếu lương"
+      ],
+      "keywords": [
+        "nhân sự",
+        "chấm công",
+        "tính lương",
+        "nghỉ phép"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Tham số thuế, bảo hiểm là giá trị mẫu, cần đối chiếu quy định hiện hành trước khi trình bày với khách.",
+      "demoScript": "",
+      "devStatus": "DangLam",
+      "isVisible": false,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": null,
+      "createdDaysAgo": 94,
+      "updatedDaysAgo": 3,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "nhansu",
+          "roleName": "Nhân sự",
+          "purpose": "Hồ sơ, bảng công, bảng lương"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Trưởng phòng",
+          "purpose": "Duyệt nghỉ phép, xem công phòng mình"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Nhân viên",
+          "purpose": "Chấm công, xin nghỉ, xem phiếu lương"
+        }
+      ],
+      "faqs": [],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Bảng công tháng",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 92626
+        },
+        {
+          "file": "2.webp",
+          "caption": "Phiếu lương nhân viên",
+          "layout": "form",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 104776
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 94
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 18
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "projectCode": "biz-quan-ly-cong-viec",
+      "name": "Quản lý Công việc",
+      "slug": "quan-ly-cong-viec",
+      "industry": "doanh-nghiep",
+      "ideaCode": "5.3",
+      "targetCustomers": "Văn phòng, agency, đội dự án",
+      "problemSolved": "Giao việc qua Zalo bị trôi tin; không biết ai đang làm gì, việc nào trễ; báo cáo tiến độ dự án mất thời gian.",
+      "productType": "Web quản lý",
+      "devices": "Máy tính, điện thoại",
+      "shortDescription": "Giao việc, theo dõi tiến độ dự án trên bảng Kanban, nhắc việc trễ hạn cho văn phòng và agency.",
+      "description": "",
+      "features": [
+        "Bảng Kanban kéo thả",
+        "Giao việc có hạn, checklist",
+        "Dashboard tiến độ dự án"
+      ],
+      "keywords": [
+        "công việc",
+        "dự án",
+        "kanban",
+        "giao việc"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Mới tạo, chưa có giao diện.",
+      "demoScript": "",
+      "devStatus": "MoiTao",
+      "isVisible": false,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": null,
+      "createdDaysAgo": 6,
+      "updatedDaysAgo": 6,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý dự án",
+          "purpose": "Tạo dự án, giao việc, theo dõi"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Thành viên",
+          "purpose": "Việc của mình, cập nhật trạng thái"
+        }
+      ],
+      "faqs": [],
+      "screenshots": [],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 6
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "projectCode": "realestate-nha-tro",
+      "name": "Quản lý Nhà trọ",
+      "slug": "quan-ly-nha-tro",
+      "industry": "bat-dong-san",
+      "ideaCode": "6.1",
+      "targetCustomers": "Chủ nhà trọ, căn hộ dịch vụ, ký túc xá",
+      "problemSolved": "Ghi chỉ số điện nước bằng sổ; tính tiền hằng tháng thủ công dễ nhầm; quên ngày hết hạn hợp đồng; khó theo dõi ai còn nợ.",
+      "productType": "Web quản lý và giao diện điện thoại cho người thuê",
+      "devices": "Điện thoại, máy tính",
+      "shortDescription": "Quản lý phòng, hợp đồng, chốt điện nước và lập hóa đơn tháng tự động cho chủ nhà trọ, căn hộ dịch vụ.",
+      "description": "Chủ nhà nhìn sơ đồ phòng trống, đang thuê theo từng tòa. Cuối tháng quản lý tòa chốt chỉ số điện nước trên điện thoại, hệ thống lập hóa đơn gồm tiền phòng, điện, nước, dịch vụ, tự tính theo ngày ở khi vào giữa tháng. Người thuê xem hóa đơn và báo sự cố.",
+      "features": [
+        "Sơ đồ phòng trống, đang thuê",
+        "Hợp đồng, tiền cọc",
+        "Chốt chỉ số điện nước",
+        "Hóa đơn tháng tự động",
+        "Công nợ, nhắc thu tiền"
+      ],
+      "keywords": [
+        "nhà trọ",
+        "phòng trọ",
+        "căn hộ dịch vụ",
+        "cho thuê phòng",
+        "ký túc xá"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Giá điện mẫu 3.500 ₫/kWh có thể vượt mức quy định cho người thuê trọ, nói rõ là số minh họa.",
+      "demoScript": "Lập hợp đồng phòng A104 vào ở giữa tháng → chốt điện nước cuối tháng → lập hóa đơn hàng loạt → người thuê xem hóa đơn trên điện thoại → thu tiền.",
+      "devStatus": "DemoDuoc",
+      "isVisible": true,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": 25,
+      "createdDaysAgo": 92,
+      "updatedDaysAgo": 10,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Chủ nhà",
+          "purpose": "Phòng, hợp đồng, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Quản lý tòa",
+          "purpose": "Chốt điện nước, thu tiền, xử lý sự cố"
+        },
+        {
+          "username": "nguoithue",
+          "roleName": "Người thuê",
+          "purpose": "Xem hóa đơn, báo sự cố"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có gửi hóa đơn qua Zalo cho người thuê không?",
+          "answer": "Demo giả lập. Bản triển khai gửi qua Zalo OA kèm link xem hóa đơn và mã QR chuyển khoản."
+        },
+        {
+          "question": "Thu tiền phòng trước hay sau?",
+          "answer": "Demo thu sau theo tháng; bản triển khai cấu hình được thu tiền phòng trước."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Sơ đồ phòng theo tòa",
+          "layout": "floor",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 117310
+        },
+        {
+          "file": "2.webp",
+          "caption": "Chốt chỉ số điện nước",
+          "layout": "form",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 78330
+        },
+        {
+          "file": "3.webp",
+          "caption": "Hóa đơn tháng",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 90554
+        },
+        {
+          "file": "4.webp",
+          "caption": "Tổng quan thu tiền kỳ này",
+          "layout": "dashboard",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 87230
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 92
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 70
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 25
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "projectCode": "web-cong-ty",
+      "name": "Website Công ty",
+      "slug": "website-cong-ty",
+      "industry": "website",
+      "ideaCode": "8.1",
+      "targetCustomers": "Doanh nghiệp vừa và nhỏ mọi ngành",
+      "problemSolved": "Website cũ xem trên điện thoại không ổn; muốn sửa nội dung phải nhờ lập trình viên; không nhận được liên hệ từ website.",
+      "productType": "Website và trang quản trị nội dung",
+      "devices": "Điện thoại, máy tính",
+      "shortDescription": "Website giới thiệu doanh nghiệp chuẩn SEO, đẹp trên điện thoại, tự sửa nội dung và nhận liên hệ từ khách.",
+      "description": "Trang chủ, giới thiệu, dịch vụ, dự án tiêu biểu, tin tức, tuyển dụng và liên hệ, tải nhanh và đẹp trên điện thoại. Biên tập viên tự sửa bài viết, banner, dịch vụ mà không cần lập trình viên. Liên hệ từ khách đổ về trang quản trị, nhân viên nhận và phản hồi.",
+      "features": [
+        "Trang chủ, giới thiệu, dịch vụ, dự án",
+        "Tin tức, tuyển dụng",
+        "Chuẩn SEO, tải nhanh trên điện thoại",
+        "Tự quản trị nội dung, banner",
+        "Form liên hệ đổ về trang quản trị"
+      ],
+      "keywords": [
+        "website",
+        "giới thiệu công ty",
+        "doanh nghiệp",
+        "seo",
+        "nội thất"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Ngành mẫu là công ty nội thất. Phần khách xem không cần đăng nhập, tài khoản chỉ dùng cho trang quản trị.",
+      "demoScript": "Khách xem dự án tiêu biểu trên điện thoại, gửi yêu cầu báo giá → biên tập viên sửa banner trang chủ → nhân viên nhận liên hệ và phản hồi.",
+      "devStatus": "HoanThien",
+      "isVisible": true,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": 75,
+      "createdDaysAgo": 90,
+      "updatedDaysAgo": 2,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cài đặt"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Biên tập viên",
+          "purpose": "Quản lý nội dung, banner, bài viết"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Nhân viên",
+          "purpose": "Xử lý liên hệ"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Có hỗ trợ tên miền và hosting không?",
+          "answer": "Demo chưa gắn tên miền. Bản triển khai hỗ trợ đăng ký tên miền, hosting và chứng chỉ SSL."
+        },
+        {
+          "question": "Có song ngữ Việt Anh không?",
+          "answer": "Bản triển khai bổ sung được song ngữ theo yêu cầu."
+        }
+      ],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Trang chủ",
+          "layout": "landing",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 74902
+        },
+        {
+          "file": "2.webp",
+          "caption": "Trang dịch vụ",
+          "layout": "landing",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 79948
+        },
+        {
+          "file": "3.webp",
+          "caption": "Dự án tiêu biểu",
+          "layout": "grid",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 64620
+        },
+        {
+          "file": "4.webp",
+          "caption": "Tin tức",
+          "layout": "grid",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 76608
+        },
+        {
+          "file": "5.webp",
+          "caption": "Liên hệ và yêu cầu báo giá",
+          "layout": "form",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 73268
+        },
+        {
+          "file": "6.webp",
+          "caption": "Quản trị nội dung",
+          "layout": "table",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 100588
+        },
+        {
+          "file": "7.webp",
+          "caption": "Trang chủ trên điện thoại",
+          "layout": "mobile",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 45484
+        }
+      ],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 90
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 86
+        },
+        {
+          "from": "DangLam",
+          "to": "DemoDuoc",
+          "daysAgo": 75
+        },
+        {
+          "from": "DemoDuoc",
+          "to": "HoanThien",
+          "daysAgo": 40
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "projectCode": "ai-chatbot-cskh",
+      "name": "Chatbot Chăm sóc Khách hàng",
+      "slug": "chatbot-cham-soc-khach-hang",
+      "industry": "ai",
+      "ideaCode": "10.1",
+      "targetCustomers": "Doanh nghiệp nhận nhiều câu hỏi lặp lại từ khách",
+      "problemSolved": "Nhân viên trả lời đi trả lời lại cùng câu hỏi; ngoài giờ không ai trực; trả lời chậm nên mất khách.",
+      "productType": "Khung chat gắn website và web quản trị",
+      "devices": "Website, máy tính",
+      "shortDescription": "Chatbot AI trả lời khách 24/7 từ kho kiến thức của doanh nghiệp, chuyển nhân viên khi cần, thống kê câu hỏi.",
+      "description": "Khung chat trên website trả lời ngay bằng AI dựa trên câu hỏi thường gặp và thông tin sản phẩm của doanh nghiệp. Câu khó hoặc khi khách yêu cầu, hội thoại chuyển sang nhân viên trong hộp thư chung.",
+      "features": [
+        "Khung chat gắn website",
+        "Trả lời bằng AI theo kho kiến thức",
+        "Chuyển nhân viên, hộp thư chung",
+        "Thống kê câu hỏi"
+      ],
+      "keywords": [
+        "chatbot",
+        "trí tuệ nhân tạo",
+        "chăm sóc khách hàng",
+        "tự động"
+      ],
+      "requiresLogin": true,
+      "ownerName": "Mạnh Hùng (Pum)",
+      "internalNotes": "Chưa chọn nhà cung cấp mô hình AI. Chế độ mock trả lời theo kịch bản có sẵn.",
+      "demoScript": "",
+      "devStatus": "DangLam",
+      "isVisible": false,
+      "isFeatured": false,
+      "firstPublishedDaysAgo": null,
+      "createdDaysAgo": 88,
+      "updatedDaysAgo": 5,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, cấu hình chatbot"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý",
+          "purpose": "Kho kiến thức, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Nhân viên CSKH",
+          "purpose": "Nhận hội thoại được chuyển"
+        }
+      ],
+      "faqs": [],
+      "screenshots": [],
+      "statusHistory": [
+        {
+          "from": null,
+          "to": "MoiTao",
+          "daysAgo": 88
+        },
+        {
+          "from": "MoiTao",
+          "to": "DangLam",
+          "daysAgo": 12
+        }
+      ]
+    }
+  ],
+  "visitStats": [
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -59,
+      "views": 22,
+      "opens": 7,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -58,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -57,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -56,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -55,
+      "views": 23,
+      "opens": 7,
+      "mobileViews": 14,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -54,
+      "views": 24,
+      "opens": 6,
+      "mobileViews": 15,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -53,
+      "views": 26,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 10
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -52,
+      "views": 21,
+      "opens": 6,
+      "mobileViews": 13,
+      "desktopViews": 8
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -51,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -50,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -49,
+      "views": 20,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -48,
+      "views": 19,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -47,
+      "views": 21,
+      "opens": 6,
+      "mobileViews": 13,
+      "desktopViews": 8
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -46,
+      "views": 26,
+      "opens": 8,
+      "mobileViews": 16,
+      "desktopViews": 10
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -45,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -44,
+      "views": 14,
+      "opens": 3,
+      "mobileViews": 9,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -43,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -42,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -41,
+      "views": 22,
+      "opens": 6,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -40,
+      "views": 28,
+      "opens": 7,
+      "mobileViews": 17,
+      "desktopViews": 11
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -39,
+      "views": 24,
+      "opens": 6,
+      "mobileViews": 15,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -38,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -37,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -36,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -35,
+      "views": 19,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -34,
+      "views": 19,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -33,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -32,
+      "views": 24,
+      "opens": 7,
+      "mobileViews": 15,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -31,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -30,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -29,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -28,
+      "views": 16,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -27,
+      "views": 28,
+      "opens": 9,
+      "mobileViews": 17,
+      "desktopViews": 11
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -26,
+      "views": 25,
+      "opens": 8,
+      "mobileViews": 15,
+      "desktopViews": 10
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -25,
+      "views": 18,
+      "opens": 5,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -24,
+      "views": 24,
+      "opens": 7,
+      "mobileViews": 15,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -23,
+      "views": 16,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -22,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -21,
+      "views": 22,
+      "opens": 7,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -20,
+      "views": 22,
+      "opens": 6,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -19,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -18,
+      "views": 25,
+      "opens": 8,
+      "mobileViews": 15,
+      "desktopViews": 10
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -17,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -16,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -15,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -14,
+      "views": 20,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -13,
+      "views": 26,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 10
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -12,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -11,
+      "views": 29,
+      "opens": 8,
+      "mobileViews": 18,
+      "desktopViews": 11
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -10,
+      "views": 18,
+      "opens": 5,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -9,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -8,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -7,
+      "views": 19,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 7
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -6,
+      "views": 22,
+      "opens": 7,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -5,
+      "views": 21,
+      "opens": 7,
+      "mobileViews": 13,
+      "desktopViews": 8
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -4,
+      "views": 25,
+      "opens": 8,
+      "mobileViews": 15,
+      "desktopViews": 10
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -3,
+      "views": 20,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -2,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": -1,
+      "views": 9,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-quan-cafe",
+      "dayOffset": 0,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -49,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -48,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -47,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -46,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -45,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -44,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -43,
+      "views": 4,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -42,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -41,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -40,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -39,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -38,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -37,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -36,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -35,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -34,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -33,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -32,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -31,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -30,
+      "views": 5,
+      "opens": 1,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -29,
+      "views": 5,
+      "opens": 1,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -28,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -27,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -26,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -25,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -24,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -23,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -22,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -21,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -20,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -19,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -18,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -17,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -16,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -15,
+      "views": 4,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -14,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -13,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -12,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -11,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -10,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -9,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -8,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -7,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -6,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -5,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -4,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -3,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -2,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": -1,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-hang",
+      "dayOffset": 0,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -44,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -43,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -42,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -41,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -40,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -39,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -38,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -37,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -36,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -35,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -34,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -33,
+      "views": 20,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -32,
+      "views": 22,
+      "opens": 8,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -31,
+      "views": 13,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -30,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -29,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -28,
+      "views": 19,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 7
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -27,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -26,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -25,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -24,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -23,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -22,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -21,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -20,
+      "views": 20,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -19,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -18,
+      "views": 20,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -17,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -16,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -15,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -14,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -13,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -12,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -11,
+      "views": 20,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -10,
+      "views": 19,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 7
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -9,
+      "views": 9,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -8,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -7,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -6,
+      "views": 21,
+      "opens": 6,
+      "mobileViews": 13,
+      "desktopViews": 8
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -5,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -4,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -3,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 5
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -2,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": -1,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "menu-qr-goi-mon",
+      "dayOffset": 0,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -69,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -68,
+      "views": 20,
+      "opens": 7,
+      "mobileViews": 14,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -67,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -66,
+      "views": 19,
+      "opens": 5,
+      "mobileViews": 13,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -65,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 8,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -64,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -63,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 8,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -62,
+      "views": 22,
+      "opens": 7,
+      "mobileViews": 15,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -61,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -60,
+      "views": 18,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -59,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -58,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -57,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -56,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 11,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -55,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -54,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -53,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -52,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -51,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -50,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -49,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -48,
+      "views": 21,
+      "opens": 7,
+      "mobileViews": 14,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -47,
+      "views": 23,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -46,
+      "views": 23,
+      "opens": 6,
+      "mobileViews": 16,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -45,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -44,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -43,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -42,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -41,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -40,
+      "views": 20,
+      "opens": 6,
+      "mobileViews": 14,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -39,
+      "views": 24,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 8
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -38,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -37,
+      "views": 15,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -36,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 8,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -35,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -34,
+      "views": 23,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -33,
+      "views": 23,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -32,
+      "views": 20,
+      "opens": 6,
+      "mobileViews": 14,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -31,
+      "views": 19,
+      "opens": 6,
+      "mobileViews": 13,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -30,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -29,
+      "views": 9,
+      "opens": 2,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -28,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -27,
+      "views": 24,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 8
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -26,
+      "views": 19,
+      "opens": 5,
+      "mobileViews": 13,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -25,
+      "views": 25,
+      "opens": 6,
+      "mobileViews": 17,
+      "desktopViews": 8
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -24,
+      "views": 20,
+      "opens": 6,
+      "mobileViews": 14,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -23,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -22,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -21,
+      "views": 21,
+      "opens": 6,
+      "mobileViews": 14,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -20,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -19,
+      "views": 19,
+      "opens": 5,
+      "mobileViews": 13,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -18,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -17,
+      "views": 15,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -16,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -15,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -14,
+      "views": 23,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -13,
+      "views": 23,
+      "opens": 7,
+      "mobileViews": 16,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -12,
+      "views": 18,
+      "opens": 5,
+      "mobileViews": 12,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -11,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -10,
+      "views": 20,
+      "opens": 6,
+      "mobileViews": 14,
+      "desktopViews": 6
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -9,
+      "views": 9,
+      "opens": 2,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -8,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -7,
+      "views": 16,
+      "opens": 4,
+      "mobileViews": 11,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -6,
+      "views": 17,
+      "opens": 4,
+      "mobileViews": 12,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -5,
+      "views": 28,
+      "opens": 9,
+      "mobileViews": 19,
+      "desktopViews": 9
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -4,
+      "views": 26,
+      "opens": 8,
+      "mobileViews": 18,
+      "desktopViews": 8
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -3,
+      "views": 22,
+      "opens": 7,
+      "mobileViews": 15,
+      "desktopViews": 7
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -2,
+      "views": 15,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": -1,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-ban-hang",
+      "dayOffset": 0,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -39,
+      "views": 9,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -38,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -37,
+      "views": 5,
+      "opens": 1,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -36,
+      "views": 4,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -35,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -34,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -33,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -32,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -31,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -30,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -29,
+      "views": 4,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -28,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -27,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -26,
+      "views": 9,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -25,
+      "views": 9,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -24,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 6,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -23,
+      "views": 5,
+      "opens": 1,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -22,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -21,
+      "views": 9,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -20,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -19,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -18,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -17,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -16,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -15,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -14,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -13,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -12,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -11,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -10,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -9,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -8,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -7,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -6,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 6
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -5,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -4,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 5
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -3,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -2,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": -1,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "pos-cua-hang-ban-le",
+      "dayOffset": 0,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -34,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -33,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -32,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -31,
+      "views": 9,
+      "opens": 4,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -30,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -29,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -28,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -27,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -26,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 6,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -25,
+      "views": 9,
+      "opens": 4,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -24,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -23,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -22,
+      "views": 4,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -21,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -20,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -19,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -18,
+      "views": 9,
+      "opens": 4,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -17,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -16,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -15,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -14,
+      "views": 10,
+      "opens": 4,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -13,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -12,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -11,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -10,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -9,
+      "views": 4,
+      "opens": 2,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -8,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -7,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -6,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -5,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -4,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -3,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -2,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": -1,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-kho",
+      "dayOffset": 0,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -54,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -53,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -52,
+      "views": 13,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -51,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -50,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -49,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -48,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -47,
+      "views": 12,
+      "opens": 5,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -46,
+      "views": 12,
+      "opens": 5,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -45,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -44,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -43,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -42,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -41,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -40,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -39,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -38,
+      "views": 12,
+      "opens": 5,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -37,
+      "views": 10,
+      "opens": 4,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -36,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -35,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -34,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -33,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -32,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -31,
+      "views": 16,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -30,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -29,
+      "views": 9,
+      "opens": 4,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -28,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -27,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -26,
+      "views": 21,
+      "opens": 7,
+      "mobileViews": 13,
+      "desktopViews": 8
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -25,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -24,
+      "views": 13,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -23,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -22,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -21,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -20,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -19,
+      "views": 22,
+      "opens": 8,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -18,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -17,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -16,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -15,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -14,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -13,
+      "views": 20,
+      "opens": 8,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -12,
+      "views": 21,
+      "opens": 8,
+      "mobileViews": 13,
+      "desktopViews": 8
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -11,
+      "views": 19,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 7
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -10,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -9,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -8,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -7,
+      "views": 16,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -6,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -5,
+      "views": 22,
+      "opens": 7,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -4,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -3,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -2,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": -1,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-spa-salon",
+      "dayOffset": 0,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -19,
+      "views": 6,
+      "opens": 0,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -18,
+      "views": 6,
+      "opens": 0,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -17,
+      "views": 5,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -16,
+      "views": 4,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -15,
+      "views": 2,
+      "opens": 0,
+      "mobileViews": 1,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -14,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -13,
+      "views": 7,
+      "opens": 0,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -12,
+      "views": 4,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -11,
+      "views": 5,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -10,
+      "views": 5,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -9,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -8,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -7,
+      "views": 5,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -6,
+      "views": 5,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -5,
+      "views": 4,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -4,
+      "views": 6,
+      "opens": 0,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -3,
+      "views": 4,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -2,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": -1,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-phong-kham",
+      "dayOffset": 0,
+      "views": 2,
+      "opens": 0,
+      "mobileViews": 1,
+      "desktopViews": 1
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -29,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -28,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -27,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -26,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -25,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -24,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -23,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 2
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -22,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 2
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -21,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -20,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -19,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -18,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -17,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -16,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -15,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 2
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -14,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -13,
+      "views": 13,
+      "opens": 3,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -12,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 10,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -11,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -10,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -9,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -8,
+      "views": 5,
+      "opens": 1,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -7,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -6,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -5,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -4,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -3,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 4
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -2,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": -1,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 2
+    },
+    {
+      "demo": "cho-thue-san-the-thao",
+      "dayOffset": 0,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -14,
+      "views": 4,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -13,
+      "views": 4,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -12,
+      "views": 5,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -11,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -10,
+      "views": 4,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -9,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -8,
+      "views": 2,
+      "opens": 0,
+      "mobileViews": 1,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -7,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -6,
+      "views": 4,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -5,
+      "views": 5,
+      "opens": 0,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -4,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -3,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -2,
+      "views": 3,
+      "opens": 0,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": -1,
+      "views": 1,
+      "opens": 0,
+      "mobileViews": 1,
+      "desktopViews": 0
+    },
+    {
+      "demo": "quan-ly-trung-tam-ngoai-ngu",
+      "dayOffset": 0,
+      "views": 2,
+      "opens": 0,
+      "mobileViews": 1,
+      "desktopViews": 1
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -64,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -63,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -62,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -61,
+      "views": 21,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -60,
+      "views": 16,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -59,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -58,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -57,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -56,
+      "views": 12,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -55,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -54,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -53,
+      "views": 15,
+      "opens": 4,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -52,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -51,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -50,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -49,
+      "views": 19,
+      "opens": 5,
+      "mobileViews": 11,
+      "desktopViews": 8
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -48,
+      "views": 15,
+      "opens": 5,
+      "mobileViews": 9,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -47,
+      "views": 20,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -46,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -45,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -44,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -43,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -42,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -41,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -40,
+      "views": 23,
+      "opens": 8,
+      "mobileViews": 14,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -39,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -38,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -37,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -36,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -35,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -34,
+      "views": 23,
+      "opens": 7,
+      "mobileViews": 14,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -33,
+      "views": 23,
+      "opens": 8,
+      "mobileViews": 14,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -32,
+      "views": 20,
+      "opens": 6,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -31,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -30,
+      "views": 14,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -29,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -28,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -27,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -26,
+      "views": 21,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -25,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -24,
+      "views": 17,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -23,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -22,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -21,
+      "views": 16,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -20,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -19,
+      "views": 21,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -18,
+      "views": 18,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -17,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -16,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -15,
+      "views": 11,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -14,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -13,
+      "views": 18,
+      "opens": 5,
+      "mobileViews": 11,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -12,
+      "views": 22,
+      "opens": 8,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -11,
+      "views": 14,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -10,
+      "views": 20,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 8
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -9,
+      "views": 13,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -8,
+      "views": 8,
+      "opens": 2,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -7,
+      "views": 19,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 8
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -6,
+      "views": 22,
+      "opens": 7,
+      "mobileViews": 13,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -5,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 10,
+      "desktopViews": 6
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -4,
+      "views": 21,
+      "opens": 7,
+      "mobileViews": 12,
+      "desktopViews": 9
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -3,
+      "views": 17,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 7
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -2,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": -1,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "crm-quan-ly-khach-hang",
+      "dayOffset": 0,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -24,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -23,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -22,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -21,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -20,
+      "views": 10,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -19,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -18,
+      "views": 16,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -17,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -16,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -15,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -14,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -13,
+      "views": 16,
+      "opens": 6,
+      "mobileViews": 11,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -12,
+      "views": 15,
+      "opens": 6,
+      "mobileViews": 10,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -11,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -10,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -9,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -8,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -7,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 8,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -6,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -5,
+      "views": 16,
+      "opens": 5,
+      "mobileViews": 11,
+      "desktopViews": 5
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -4,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -3,
+      "views": 10,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -2,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 7,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": -1,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "quan-ly-nha-tro",
+      "dayOffset": 0,
+      "views": 4,
+      "opens": 1,
+      "mobileViews": 3,
+      "desktopViews": 1
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -74,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -73,
+      "views": 9,
+      "opens": 4,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -72,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -71,
+      "views": 4,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -70,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -69,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -68,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -67,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -66,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -65,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -64,
+      "views": 4,
+      "opens": 2,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -63,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -62,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -61,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -60,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -59,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -58,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -57,
+      "views": 3,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -56,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -55,
+      "views": 10,
+      "opens": 4,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -54,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -53,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -52,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -51,
+      "views": 4,
+      "opens": 2,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -50,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -49,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -48,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -47,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -46,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -45,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -44,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -43,
+      "views": 3,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 1
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -42,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -41,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -40,
+      "views": 9,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -39,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -38,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -37,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -36,
+      "views": 4,
+      "opens": 1,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -35,
+      "views": 6,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -34,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -33,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -32,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -31,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -30,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -29,
+      "views": 4,
+      "opens": 2,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -28,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -27,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -26,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -25,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -24,
+      "views": 6,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -23,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -22,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -21,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -20,
+      "views": 12,
+      "opens": 5,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -19,
+      "views": 11,
+      "opens": 5,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -18,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -17,
+      "views": 7,
+      "opens": 2,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -16,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -15,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -14,
+      "views": 11,
+      "opens": 5,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -13,
+      "views": 10,
+      "opens": 4,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -12,
+      "views": 12,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -11,
+      "views": 10,
+      "opens": 3,
+      "mobileViews": 6,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -10,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -9,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -8,
+      "views": 4,
+      "opens": 2,
+      "mobileViews": 2,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -7,
+      "views": 7,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -6,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -5,
+      "views": 11,
+      "opens": 4,
+      "mobileViews": 7,
+      "desktopViews": 4
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -4,
+      "views": 13,
+      "opens": 5,
+      "mobileViews": 8,
+      "desktopViews": 5
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -3,
+      "views": 8,
+      "opens": 3,
+      "mobileViews": 5,
+      "desktopViews": 3
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -2,
+      "views": 6,
+      "opens": 3,
+      "mobileViews": 4,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": -1,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    },
+    {
+      "demo": "website-cong-ty",
+      "dayOffset": 0,
+      "views": 5,
+      "opens": 2,
+      "mobileViews": 3,
+      "desktopViews": 2
+    }
+  ]
+}

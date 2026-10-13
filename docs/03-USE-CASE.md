@@ -84,7 +84,7 @@ flowchart LR
 | Mục | Nội dung |
 | :--- | :--- |
 | Tác nhân chính | Khách |
-| Mô tả | Xem toàn bộ demo của công ty, lọc theo nhóm ngành, tìm theo từ khóa |
+| Mô tả | Xem toàn bộ demo của PUM, lọc theo nhóm ngành, tìm theo từ khóa |
 | Ưu tiên | P1 |
 | Điều kiện kích hoạt | Khách mở link danh mục do nhân viên gửi hoặc nhân viên mở trong buổi gặp |
 | Tiền điều kiện | Không cần đăng nhập |
@@ -105,7 +105,7 @@ flowchart LR
 - 2a. Khách bấm "Tất cả": bỏ lọc nhóm ngành, giữ từ khóa.
 - 3a. Từ khóa dưới 2 ký tự: hệ thống không lọc, hiện gợi ý "Nhập ít nhất 2 ký tự".
 - 4a. Thẻ "Sắp ra mắt": không có nút "Xem demo"; bấm thẻ thì mở trang chi tiết.
-- 4b. Khách bấm hotline ở đầu trang trên điện thoại: máy gọi ngay số của công ty.
+- 4b. Khách bấm hotline ở đầu trang trên điện thoại: máy gọi ngay số hotline của PUM.
 
 **Luồng ngoại lệ**
 
