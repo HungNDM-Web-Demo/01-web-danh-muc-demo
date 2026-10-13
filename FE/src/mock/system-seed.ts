@@ -10,7 +10,8 @@ import projectJson from './seed/project.json'
  * - roles: thêm mới; trùng code thì chỉ ghi đè name/description (không đổi isSystem, permissions).
  * - roleGrants: { "MANAGER": ["orders.view", …] } cấp thêm quyền cho vai trò đã có.
  * - users: thêm mới; trùng username thì ghi đè các trường khai báo
- *   (fullName, email, phone, description, roles, quickLogin, sortOrder…), không tạo tài khoản mới.
+ *   (fullName, email, phone, description, roles, quickLogin, sortOrder…), không tạo tài khoản mới;
+ *   { "username": "nhanvien", "enabled": false } bỏ hẳn tài khoản đó của nền.
  * - settings: trùng key thì ghi đè value (và groupName nếu có); key mới thì thêm.
  * - homeAfterLogin: trang mở sau khi đăng nhập (config/app.config.ts).
  */
@@ -48,7 +49,7 @@ type ProjectSeedFile = {
   permissions?: SeedPermission[]
   roles?: SeedRole[]
   roleGrants?: Record<string, string[]>
-  users?: (Partial<SeedUser> & { username: string })[]
+  users?: (Partial<SeedUser> & { username: string; enabled?: boolean })[]
   settings?: { key: string; value: string; groupName?: string }[]
   homeAfterLogin?: string
 }
@@ -89,8 +90,12 @@ function mergeSeed(system: SystemSeed, project: ProjectSeedFile): SystemSeed {
   }
 
   const users = system.users.map((user) => ({ ...user }))
-  for (const item of project.users ?? []) {
+  for (const { enabled, ...item } of project.users ?? []) {
     const index = users.findIndex((u) => u.username === item.username)
+    if (enabled === false) {
+      if (index >= 0) users.splice(index, 1)
+      continue
+    }
     if (index >= 0) users[index] = { ...users[index], ...definedFields(item) }
     else users.push({ fullName: item.username, roles: [], ...definedFields(item) } as SeedUser)
   }

@@ -1,5 +1,6 @@
 import demoData from '@/mock/seed/demo-data.json'
 import { appConfig } from '@/config/app.config'
+import { mockDb } from '@/mock/mock-db'
 import { daysAgo, stableId } from '@/mock/mock-helpers'
 import { localDateKey } from '../lib/date-key'
 import { demoFolder, padNumber } from '../lib/demo-rules'
@@ -19,6 +20,9 @@ import type { DemoAccountItem, DemoDevStatus, DemoFaqItem, Screenshot } from '..
  * - demoPassword = mật khẩu demo chung (DEMO_PASSWORD) khi "Cần đăng nhập"
  * - ảnh: url /seed/demos/{slug}/{file}, thiếu width/height thì coi 1600×1000
  */
+
+// Sửa demo-data.json là trình duyệt tự bỏ dữ liệu mẫu cũ (xem MockDb.registerSeed)
+mockDb.registerSeed('demo-data', demoData)
 
 // ───────────────────────── Bản ghi ─────────────────────────
 
@@ -190,7 +194,7 @@ const seed = demoData as unknown as SeedFile
 /** Kích thước mặc định khi ảnh mẫu chưa ghi width/height */
 const DEFAULT_SIZE = { width: 1600, height: 1000 }
 /** Người đổi trạng thái trong lịch sử mẫu (tài khoản demo Quản lý) */
-const SEED_CHANGED_BY = 'quanly'
+const SEED_CHANGED_BY = 'admin'
 
 // ───────────────────────── Id cố định ─────────────────────────
 

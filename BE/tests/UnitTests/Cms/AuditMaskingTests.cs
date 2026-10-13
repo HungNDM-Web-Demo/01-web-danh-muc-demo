@@ -23,7 +23,7 @@ public sealed class AuditMaskingTests : IAsyncLifetime
     public async Task InitializeAsync()
     {
         _host = await CmsTestHost.StartAsync();
-        await _host.SignInAsync("quanly");
+        await _host.SignInAsync("admin");
     }
 
     public async Task DisposeAsync() => await _host.DisposeAsync();

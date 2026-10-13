@@ -25,7 +25,19 @@ type StoredCollection = { scope: CollectionScope; items: unknown[] }
 
 type Snapshot = {
   version: number
+  /** Dấu vân tay từng file seed lúc lưu (tên → hash); seed nào đổi thì bỏ dữ liệu cũ */
+  seeds: Record<string, string>
   collections: Record<string, StoredCollection>
+}
+
+/** FNV-1a 32 bit, đủ để nhận ra seed đã đổi (không dùng cho bảo mật). */
+function fingerprint(text: string): string {
+  let hash = 0x811c9dc5
+  for (let i = 0; i < text.length; i++) {
+    hash ^= text.charCodeAt(i)
+    hash = Math.imul(hash, 0x01000193)
+  }
+  return (hash >>> 0).toString(16).padStart(8, '0')
 }
 
 export type ChangeEvent = {
@@ -71,6 +83,7 @@ type Registration = { seed: () => unknown[]; scope: CollectionScope }
 class MockDb {
   private snapshot: Snapshot | null = null
   private registry = new Map<string, Registration>()
+  private seeds = new Map<string, string>()
   private listeners = new Set<(event: ChangeEvent) => void>()
   private resetHandlers = new Set<() => void | Promise<void>>()
   private channel: BroadcastChannel | null = null
@@ -79,6 +92,41 @@ class MockDb {
   private warnedQuota = false
 
   // ───────────────────────── Đăng ký collection ─────────────────────────
+
+  /**
+   * Khai báo một file seed (system.json + project.json, demo-data.json…). Phiên bản dữ liệu lưu trong
+   * localStorage gồm dấu vân tay của mọi seed đã khai báo: sửa seed là trình duyệt tự nạp lại, không còn
+   * giữ dữ liệu cũ (vd tên, số điện thoại đã đổi). Gọi ở cấp module, trước khi tạo collection.
+   */
+  registerSeed(name: string, seed: unknown): void {
+    const hash = fingerprint(JSON.stringify(seed))
+    if (this.seeds.get(name) === hash) return
+    this.seeds.set(name, hash)
+    if (!this.snapshot) return
+    // Snapshot đã nạp trước khi seed này được khai báo (trang trước không dùng tới seed này):
+    // chỉ so với bản đã lưu nếu có, chưa có thì ghi thêm chứ không coi là đổi
+    const stored = this.snapshot.seeds[name]
+    if (stored === undefined) {
+      this.snapshot.seeds[name] = hash
+      this.save()
+    } else if (stored !== hash) {
+      this.discard()
+    }
+  }
+
+  /** Seed đổi: bỏ dữ liệu cũ và ảnh đã tải lên, lần truy cập sau nạp lại từ seed. */
+  private discard() {
+    this.snapshot = null
+    removeKey('local', DB_KEY)
+    void mockBlobs.clear([])
+  }
+
+  private seedsChanged(stored: Snapshot): boolean {
+    return [...this.seeds].some(([name, hash]) => {
+      const saved = stored.seeds?.[name]
+      return saved !== undefined && saved !== hash
+    })
+  }
 
   /**
    * Đăng ký (hoặc lấy lại) một collection.
@@ -125,7 +173,11 @@ class MockDb {
         if (stored.scope === 'system') kept[name] = stored
       }
     }
-    this.snapshot = { version: appConfig.mockDataVersion, collections: kept }
+    this.snapshot = {
+      version: appConfig.mockDataVersion,
+      seeds: Object.fromEntries(this.seeds),
+      collections: kept,
+    }
     this.save()
 
     await mockBlobs.clear(collectIdbIds(kept))
@@ -262,15 +314,26 @@ class MockDb {
   private load(): Snapshot {
     if (this.snapshot) return this.snapshot
     const stored = readJson<Snapshot>('local', DB_KEY)
-    if (stored && stored.version === appConfig.mockDataVersion && stored.collections) {
+    if (
+      stored &&
+      stored.version === appConfig.mockDataVersion &&
+      stored.collections &&
+      !this.seedsChanged(stored)
+    ) {
+      // Seed khai báo thêm sau lần lưu trước thì ghi nhận dấu vân tay để lần sau so được
+      stored.seeds = { ...Object.fromEntries(this.seeds), ...(stored.seeds ?? {}) }
       this.snapshot = stored
     } else {
       if (stored) {
-        // Đổi phiên bản dữ liệu mẫu: bỏ toàn bộ dữ liệu cũ và ảnh đã tải lên
+        // Đổi phiên bản hoặc sửa seed: bỏ toàn bộ dữ liệu cũ và ảnh đã tải lên
         removeKey('local', DB_KEY)
         void mockBlobs.clear([])
       }
-      this.snapshot = { version: appConfig.mockDataVersion, collections: {} }
+      this.snapshot = {
+        version: appConfig.mockDataVersion,
+        seeds: Object.fromEntries(this.seeds),
+        collections: {},
+      }
     }
     this.connect()
     return this.snapshot

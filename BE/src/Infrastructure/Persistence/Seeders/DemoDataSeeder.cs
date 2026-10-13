@@ -38,7 +38,7 @@ public sealed class DemoDataSeeder(
     private const int DefaultHeight = 1000;
 
     /// <summary>Người đổi trạng thái trong lịch sử mẫu (tài khoản demo Quản lý).</summary>
-    private const string SeedChangedBy = "quanly";
+    private const string SeedChangedBy = "admin";
 
     public async Task<bool> HasDataAsync(CancellationToken ct = default) =>
         await db.Set<Industry>().AnyAsync(ct) || await db.Set<Demo>().AnyAsync(ct);

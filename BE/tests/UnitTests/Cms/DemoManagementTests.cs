@@ -24,7 +24,7 @@ public sealed class DemoManagementTests : IAsyncLifetime
     public async Task InitializeAsync()
     {
         _host = await CmsTestHost.StartAsync();
-        await _host.SignInAsync("quanly");
+        await _host.SignInAsync("admin");
     }
 
     public async Task DisposeAsync() => await _host.DisposeAsync();
@@ -98,7 +98,7 @@ public sealed class DemoManagementTests : IAsyncLifetime
         Assert.Equal(13, (await PublicDemosAsync()).Count);
 
         var history = await _host.CallAsync<IDemoManagementService, IReadOnlyList<StatusHistoryItem>>(s => s.GetStatusHistoryAsync(created.Id));
-        Assert.Equal("quanly", Assert.Single(history).ChangedByName);
+        Assert.Equal("admin", Assert.Single(history).ChangedByName);
 
         // TC-26: demo chưa từng công khai xóa được; demo đã từng công khai thì không.
         await _host.CallAsync<IDemoManagementService>(s => s.DeleteAsync(created.Id));
@@ -193,7 +193,7 @@ public sealed class DemoManagementTests : IAsyncLifetime
             s.ChangeStatusAsync(shop.Id, new ChangeStatusRequest { Status = DemoDevStatus.DemoDuoc, Reason = "BE đang nâng cấp phiên bản .NET" }));
         Assert.Equal((DemoDevStatus.DemoDuoc, true), (downgraded.DevStatus, downgraded.IsFeatured));
         var history = await _host.CallAsync<IDemoManagementService, IReadOnlyList<StatusHistoryItem>>(s => s.GetStatusHistoryAsync(shop.Id));
-        Assert.Equal((DemoDevStatus.HoanThien, DemoDevStatus.DemoDuoc, "quanly"), (history[0].FromStatus, history[0].ToStatus, history[0].ChangedByName));
+        Assert.Equal((DemoDevStatus.HoanThien, DemoDevStatus.DemoDuoc, "admin"), (history[0].FromStatus, history[0].ToStatus, history[0].ChangedByName));
 
         // TC-34: Quản lý Kho lùi về Đang làm: đứng đầu phần Sắp ra mắt, nút Bán lẻ vẫn 3.
         var warehouse = await DetailAsync("quan-ly-kho");

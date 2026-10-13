@@ -10,7 +10,7 @@
 | :--- | :--- |
 | Tên demo | Danh mục Demo |
 | Mã dự án | `web-danh-muc-demo` |
-| Ngành / loại khách hàng | Nội bộ: trang trình bày mọi demo cho khách hàng |
+| Ngành / loại khách hàng | Trang riêng của PUM: trình bày mọi demo cho doanh nghiệp nhỏ và sinh viên làm đồ án |
 | Loại sản phẩm | Website (FE là chính) + trang quản trị danh sách demo |
 | Ý tưởng gốc | 0.1 · Trang danh mục demo (`ZDOCS/02-KE-HOACH/DANH-SACH-Y-TUONG.md`) |
 | Người phụ trách | Mạnh Hùng (Pum) |
@@ -20,22 +20,22 @@
 
 - Khi gặp khách, mất thời gian tìm đúng link demo và tài khoản đăng nhập
 - Các demo nằm rải rác, khách không thấy được toàn bộ giải pháp PUM có
-- Sales không biết demo nào đang chạy được, demo nào còn đang làm
+- Không có một nơi ghi rõ demo nào đang chạy được, demo nào còn đang làm
 
 ## 3. Giải pháp demo thể hiện
 
 - Một trang duy nhất hiển thị mọi demo dạng thẻ có ảnh, lọc theo ngành, tìm kiếm
 - Trang chi tiết từng demo: ảnh chụp, tính năng nổi bật, link, tài khoản demo
-- Quản trị thêm/sửa/ẩn demo, sắp xếp thứ tự, gắn trạng thái
+- Quản trị viên thêm/sửa/ẩn demo, sắp xếp thứ tự, gắn trạng thái; xem thông tin nội bộ, sao chép link và tài khoản gửi khách
 
 ## 4. Vai trò người dùng
 
 | Vai trò | Mã | Dùng trên | Làm được gì |
 | :--- | :--- | :--- | :--- |
-| Khách xem | — | Điện thoại, desktop | Xem danh mục, mở demo (không cần đăng nhập) |
-| Quản trị viên | ADMIN | Desktop | Toàn quyền |
-| Quản lý | MANAGER | Desktop | Cập nhật thông tin demo, ảnh, trạng thái |
-| Nhân viên kinh doanh | STAFF | Desktop | Xem ghi chú nội bộ, kịch bản demo của từng dự án |
+| Khách | — | Điện thoại, desktop | Xem danh mục, mở demo, liên hệ hotline hoặc Zalo (không cần đăng nhập) |
+| Quản trị viên | ADMIN | Desktop | Toàn quyền: thêm, sửa demo, ảnh, trạng thái, hiển thị, nổi bật, sắp xếp, nhóm ngành, thống kê; xem thông tin nội bộ, sao chép gửi khách |
+
+Chỉ có một tài khoản nội bộ là `admin` của Mạnh Hùng. Không có vai trò Quản lý hay Nhân viên.
 
 ## 5. Phân hệ và chức năng
 

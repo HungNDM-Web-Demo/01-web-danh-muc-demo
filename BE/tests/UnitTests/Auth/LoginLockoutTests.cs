@@ -67,38 +67,38 @@ public sealed class LoginLockoutTests : IAsyncLifetime
     {
         for (var attempt = 1; attempt <= 4; attempt++)
         {
-            var error = await Assert.ThrowsAsync<UnauthorizedAccessException>(() => LoginAsync("nhanvien", "SaiMatKhau1"));
+            var error = await Assert.ThrowsAsync<UnauthorizedAccessException>(() => LoginAsync("admin", "SaiMatKhau1"));
             Assert.Equal("Tên đăng nhập hoặc mật khẩu không đúng", error.Message);
         }
 
-        var fifth = await Assert.ThrowsAsync<DomainException>(() => LoginAsync("nhanvien", "SaiMatKhau1"));
+        var fifth = await Assert.ThrowsAsync<DomainException>(() => LoginAsync("admin", "SaiMatKhau1"));
         Assert.Equal("Tài khoản tạm khóa đăng nhập, thử lại sau 5 phút", fifth.Message);
 
         // Đang tạm khóa: mật khẩu đúng vẫn bị từ chối.
         _time.Advance(TimeSpan.FromMinutes(4));
-        var whileLocked = await Assert.ThrowsAsync<DomainException>(() => LoginAsync("nhanvien", DemoPassword));
+        var whileLocked = await Assert.ThrowsAsync<DomainException>(() => LoginAsync("admin", DemoPassword));
         Assert.Equal("Tài khoản tạm khóa đăng nhập, thử lại sau 1 phút", whileLocked.Message);
 
         // Hết 5 phút: đăng nhập lại được.
         _time.Advance(TimeSpan.FromMinutes(1));
-        var response = await LoginAsync("nhanvien", DemoPassword);
-        Assert.Equal("nhanvien", response.User.Username);
-        Assert.Equal(["STAFF"], response.User.Roles);
-        Assert.Equal(["Nhân viên"], response.User.RoleNames);
+        var response = await LoginAsync("admin", DemoPassword);
+        Assert.Equal("admin", response.User.Username);
+        Assert.Equal(["ADMIN"], response.User.Roles);
+        Assert.Equal(["Quản trị viên"], response.User.RoleNames);
     }
 
     [Fact]
     public async Task SuccessfulLogin_ResetsFailedAttempts()
     {
         for (var attempt = 1; attempt <= 4; attempt++)
-            await Assert.ThrowsAsync<UnauthorizedAccessException>(() => LoginAsync("quanly", "SaiMatKhau1"));
+            await Assert.ThrowsAsync<UnauthorizedAccessException>(() => LoginAsync("admin", "SaiMatKhau1"));
 
-        await LoginAsync("quanly", DemoPassword);
+        await LoginAsync("admin", DemoPassword);
 
         // Đã đếm lại từ đầu: thêm 4 lần sai nữa vẫn chưa bị khóa.
         for (var attempt = 1; attempt <= 4; attempt++)
         {
-            var error = await Assert.ThrowsAsync<UnauthorizedAccessException>(() => LoginAsync("quanly", "SaiMatKhau1"));
+            var error = await Assert.ThrowsAsync<UnauthorizedAccessException>(() => LoginAsync("admin", "SaiMatKhau1"));
             Assert.Equal("Tên đăng nhập hoặc mật khẩu không đúng", error.Message);
         }
     }

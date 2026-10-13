@@ -143,6 +143,14 @@ public sealed class SystemSeeder(
             foreach (var roleCode in item.Roles)
                 user.AddRole(roles[roleCode].Id);
         }
+
+        // Tài khoản demo chỉ tồn tại theo seed: project.json bỏ ("enabled": false) thì xóa khỏi DB
+        var seeded = seed.Users.Select(u => u.Username).ToHashSet(StringComparer.OrdinalIgnoreCase);
+        foreach (var user in users.Where(u => u.IsDemoAccount && !seeded.Contains(u.Username)))
+        {
+            db.Users.Remove(user);
+            logger.LogInformation("Xóa tài khoản demo {Username} không còn trong seed.", user.Username);
+        }
     }
 
     private async Task SyncSettingsAsync(SystemSeedData seed, CancellationToken ct)

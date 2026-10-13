@@ -40,6 +40,8 @@ internal sealed class SeedFileUser
     public bool? QuickLogin { get; init; }
     public int? SortOrder { get; init; }
     public string? Description { get; init; }
+    /// <summary>project.json đặt <c>false</c> để bỏ một tài khoản của nền (dự án không dùng vai trò đó).</summary>
+    public bool? Enabled { get; init; }
 }
 
 internal sealed class SeedFileSetting

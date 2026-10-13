@@ -12,7 +12,8 @@ namespace Infrastructure.Persistence.Seeders;
 /// không đổi <c>isSystem</c>, quyền khai báo thêm được cộng vào.</item>
 /// <item><c>roleGrants</c>: cấp thêm quyền cho vai trò đã có. <c>"*"</c> là mọi quyền (sau khi ghép).</item>
 /// <item><c>users</c>: thêm tài khoản demo; trùng <c>username</c> thì ghi đè các trường đã khai báo
-/// (fullName, email, phone, description, roles, quickLogin, sortOrder), không tạo tài khoản mới.</item>
+/// (fullName, email, phone, description, roles, quickLogin, sortOrder), không tạo tài khoản mới;
+/// <c>"enabled": false</c> bỏ hẳn tài khoản đó (dự án không dùng vai trò này).</item>
 /// <item><c>settings</c>: trùng <c>key</c> thì ghi đè giá trị (và nhóm nếu khai báo); khóa mới thì thêm.</item>
 /// <item><c>homeAfterLogin</c> chỉ FE dùng, BE bỏ qua.</item>
 /// </list>
@@ -169,6 +170,14 @@ public sealed class SystemSeedData
         foreach (var item in (system.Users ?? []).Concat(project.Users ?? []))
         {
             var username = User.NormalizeUsername(Required(item.Username, "users[].username"));
+            if (item.Enabled == false)
+            {
+                // Dự án không dùng tài khoản này của nền: bỏ khỏi seed (SystemSeeder xóa nếu DB đã có)
+                if (byUsername.Remove(username, out var disabled))
+                    drafts.Remove(disabled);
+                continue;
+            }
+
             if (byUsername.TryGetValue(username, out var existing))
             {
                 existing.FullName = item.FullName?.Trim() ?? existing.FullName;

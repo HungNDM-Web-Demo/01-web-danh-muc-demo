@@ -104,7 +104,7 @@ public sealed class CatalogSeedTests : IAsyncLifetime
     [Fact]
     public async Task AdminList_SortedBySortOrder_InternalOnlyWithPermission()
     {
-        await _host.SignInAsync("nhanvien");
+        await _host.SignInAsync("admin");
         var withInternal = await _host.CallAsync<IDemoManagementService, IReadOnlyList<DemoListItem>>(s => s.GetListAsync());
         Assert.Equal(Enumerable.Range(1, 18).Select(n => n * 10), withInternal.Select(d => d.SortOrder));
         Assert.Equal("02-fnb-pos-cafe", withInternal[1].Folder);
@@ -125,7 +125,7 @@ public sealed class CatalogSeedTests : IAsyncLifetime
     public async Task OwnerName_ReadFromSeedWhenPresent()
     {
         var seed = SeedJson.Read<DemoSeedFile>(DemoDataSeeder.SeedFileName);
-        await _host.SignInAsync("quanly");
+        await _host.SignInAsync("admin");
         var list = await _host.CallAsync<IDemoManagementService, IReadOnlyList<DemoListItem>>(s => s.GetListAsync());
 
         foreach (var item in seed.Demos!)

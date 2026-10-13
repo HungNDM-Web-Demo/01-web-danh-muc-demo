@@ -38,7 +38,7 @@ type VisibilityFilter = 'all' | 'visible' | 'hidden'
 /**
  * SCR-05 Quản lý demo (UC-03, UC-05, UC-07, UC-08): thẻ tổng hợp, lọc nhóm ngành/trạng thái/hiển thị,
  * tìm theo tên hoặc mã dự án, bảng, chế độ sắp xếp kéo thả (chỉ khi không lọc, BR-18).
- * Người chỉ xem (STAFF) không có nút Thêm, Sửa (UC-03 E2).
+ * Người thiếu quyền demos.update không có nút Thêm, Sửa (UC-03 E2).
  */
 export function DemosPage() {
   const { can } = usePermissions()

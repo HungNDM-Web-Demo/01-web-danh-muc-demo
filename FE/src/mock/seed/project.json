@@ -15,18 +15,11 @@
     { "code": "reports.view", "groupName": "Thống kê", "name": "Xem thống kê lượt xem", "sortOrder": 230 }
   ],
   "roles": [],
-  "roleGrants": {
-    "MANAGER": [
-      "demos.view", "demos.view-internal", "demos.create", "demos.update", "demos.publish", "demos.share",
-      "industries.view", "industries.create", "industries.update", "industries.delete",
-      "reports.view"
-    ],
-    "STAFF": ["demos.view", "demos.view-internal", "demos.share", "industries.view"]
-  },
+  "roleGrants": {},
   "users": [
-    { "username": "admin", "fullName": "Mạnh Hùng (Pum)", "email": "manhhung02082003@gmail.com", "phone": "0385884912", "description": "Phân quyền, cài đặt thông tin liên hệ, xóa demo nhập sai" },
-    { "username": "quanly", "description": "Thêm demo, ảnh chụp, trạng thái, hiển thị, sắp xếp, thống kê" },
-    { "username": "nhanvien", "fullName": "Lê Hoàng Nam", "description": "Nhân viên kinh doanh: thông tin nội bộ, sao chép gửi khách" }
+    { "username": "admin", "fullName": "Mạnh Hùng (Pum)", "email": "manhhung02082003@gmail.com", "phone": "0385884912", "description": "Toàn quyền: demo, ảnh chụp, trạng thái, nhóm ngành, thống kê, thông tin nội bộ" },
+    { "username": "quanly", "enabled": false },
+    { "username": "nhanvien", "enabled": false }
   ],
   "settings": [
     { "key": "Brand.LogoUrl", "value": "/logo/logo-mark.svg", "groupName": "Thương hiệu" }

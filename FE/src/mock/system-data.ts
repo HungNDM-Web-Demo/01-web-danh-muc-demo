@@ -5,6 +5,9 @@ import { daysAgo, mockHash, stableId } from './mock-helpers'
 import { systemSeed, type SeedPermission } from './system-seed'
 import type { AuditLogDto } from '@/features/audit-logs/types/audit-log.types'
 
+// Sửa system.json / project.json là trình duyệt tự bỏ dữ liệu mẫu cũ (xem MockDb.registerSeed)
+mockDb.registerSeed('system', systemSeed)
+
 /**
  * Collection dữ liệu hệ thống ở chế độ mock (nhóm bảng System_*).
  * scope 'system': giữ nguyên khi "Đặt lại dữ liệu" (BR-SYS-09).

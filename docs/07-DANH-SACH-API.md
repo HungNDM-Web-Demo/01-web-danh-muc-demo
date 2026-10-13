@@ -8,17 +8,19 @@
 
 ## 1. Mã quyền nghiệp vụ
 
-| Nhóm | Mã quyền | Vai trò mặc định |
+Dự án chỉ có một vai trò nội bộ `ADMIN` (tài khoản `admin`); mọi mã quyền bên dưới đều cấp cho `ADMIN`, không cấp cho vai trò nào khác. Mã quyền vẫn tách riêng để BE kiểm tra từng endpoint và FE ẩn, hiện nút theo quyền.
+
+| Nhóm | Mã quyền | Vai trò được cấp |
 | :--- | :--- | :--- |
-| Demo | `demos.view` | ADMIN, MANAGER, STAFF |
-| Demo | `demos.view-internal` | ADMIN, MANAGER, STAFF |
-| Demo | `demos.create`, `demos.update` | ADMIN, MANAGER |
-| Demo | `demos.publish` | ADMIN, MANAGER |
+| Demo | `demos.view` | ADMIN |
+| Demo | `demos.view-internal` | ADMIN |
+| Demo | `demos.create`, `demos.update` | ADMIN |
+| Demo | `demos.publish` | ADMIN |
 | Demo | `demos.delete` | ADMIN |
-| Demo | `demos.share` | ADMIN, MANAGER, STAFF |
-| Nhóm ngành | `industries.view` | ADMIN, MANAGER, STAFF |
-| Nhóm ngành | `industries.create`, `industries.update`, `industries.delete` | ADMIN, MANAGER |
-| Thống kê | `reports.view` | ADMIN, MANAGER |
+| Demo | `demos.share` | ADMIN |
+| Nhóm ngành | `industries.view` | ADMIN |
+| Nhóm ngành | `industries.create`, `industries.update`, `industries.delete` | ADMIN |
+| Thống kê | `reports.view` | ADMIN |
 
 ---
 
