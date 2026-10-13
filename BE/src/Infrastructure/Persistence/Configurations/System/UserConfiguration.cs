@@ -1,4 +1,5 @@
 using Domain.Entities.System.Users;
+using Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,7 +19,7 @@ public sealed class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.AvatarUrl).HasMaxLength(User.AvatarUrlMaxLength);
 
         // Tên đăng nhập không trùng trong số tài khoản chưa xóa; tài khoản đã xóa mềm không giữ chỗ tên.
-        builder.HasIndex(x => x.Username).IsUnique().HasFilter("[IsDeleted] = 0");
+        builder.HasIndex(x => x.Username).IsUnique().WhereNotDeleted();
 
         builder.HasMany(x => x.UserRoles)
             .WithOne(x => x.User)

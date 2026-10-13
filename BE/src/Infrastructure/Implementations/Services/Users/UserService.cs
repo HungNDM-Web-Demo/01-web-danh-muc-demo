@@ -37,10 +37,10 @@ public sealed class UserService(
         {
             var pattern = LikePattern.Contains(term);
             source = source.Where(u =>
-                EF.Functions.Like(u.Username, pattern, LikePattern.EscapeCharacter)
-                || EF.Functions.Like(u.FullName, pattern, LikePattern.EscapeCharacter)
-                || EF.Functions.Like(u.Email, pattern, LikePattern.EscapeCharacter)
-                || EF.Functions.Like(u.Phone, pattern, LikePattern.EscapeCharacter));
+                AppDbFunctions.Matches(u.Username, pattern)
+                || AppDbFunctions.Matches(u.FullName, pattern)
+                || AppDbFunctions.Matches(u.Email, pattern)
+                || AppDbFunctions.Matches(u.Phone, pattern));
         }
 
         if (query.RoleId is { } roleId)

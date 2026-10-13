@@ -1,13 +1,13 @@
 namespace Infrastructure.Extensions;
 
 /// <summary>
-/// Mẫu tìm kiếm cho <c>EF.Functions.Like</c>. Dùng LIKE thay cho <c>Contains</c> để tìm không phân biệt hoa thường
-/// trên cả SQL Server lẫn SQLite (SQLite chỉ không phân biệt với chữ không dấu).
+/// Mẫu tìm kiếm cho <see cref="AppDbFunctions.Matches"/> (và <c>EF.Functions.Like</c> khi cần): thoát các ký tự đặc biệt
+/// của LIKE bằng <see cref="EscapeCharacter"/> để chuỗi người dùng nhập được hiểu đúng nghĩa đen.
 /// </summary>
 /// <example>
 /// <code>
 /// var pattern = LikePattern.Contains(term);
-/// query = query.Where(x => EF.Functions.Like(x.Name, pattern, LikePattern.EscapeCharacter));
+/// query = query.Where(x => AppDbFunctions.Matches(x.Name, pattern));
 /// </code>
 /// </example>
 public static class LikePattern

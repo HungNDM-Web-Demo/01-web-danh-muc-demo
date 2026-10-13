@@ -1,32 +1,37 @@
+using Infrastructure.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace Infrastructure.Persistence;
 
 /// <summary>
-/// Tạo AppDbContext cho lệnh <c>dotnet ef</c> (BE-CAU-TRUC-THU-MUC §5). Đọc <c>CONNECTION_STRING</c> từ src/API/.env.
-/// Migration chỉ dành cho SQL Server; khi .env đang dùng SQLite hoặc chưa có .env thì dùng chuỗi kết nối mặc định
+/// Tạo AppDbContext cho lệnh <c>dotnet ef</c> (BE-CAU-TRUC-THU-MUC §5). Đọc <c>DB_PROVIDER</c>, <c>CONNECTION_STRING</c>
+/// từ src/API/.env; chưa có .env hoặc thiếu biến thì mặc định Postgres với chuỗi kết nối localhost.
+/// Migration trong Infrastructure/Migrations sinh cho Postgres; muốn sinh lại thì đặt <c>DB_PROVIDER=Postgres</c>
 /// (lệnh <c>migrations add</c> không cần kết nối DB, <c>database update</c> thì cần).
 /// </summary>
 public sealed class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
     private const string DefaultConnectionString =
-        "Server=localhost;Database=WebDemo_WebDanhMucDemo;Trusted_Connection=True;TrustServerCertificate=True";
+        "Host=localhost;Port=5432;Database=WebDemo_WebDanhMucDemo;Username=postgres;Password=postgres";
 
     public AppDbContext CreateDbContext(string[] args)
     {
         LoadEnvFile();
 
-        var provider = Environment.GetEnvironmentVariable("DB_PROVIDER");
+        var provider = Enum.TryParse<DatabaseProvider>(Environment.GetEnvironmentVariable("DB_PROVIDER"), ignoreCase: true, out var parsed)
+            ? parsed
+            : DatabaseProvider.Postgres;
         var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
-        var isSqlServer = string.IsNullOrWhiteSpace(provider) || provider.Equals("SqlServer", StringComparison.OrdinalIgnoreCase);
-        if (!isSqlServer || string.IsNullOrWhiteSpace(connectionString))
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            provider = DatabaseProvider.Postgres;
             connectionString = DefaultConnectionString;
+        }
 
-        var options = new DbContextOptionsBuilder<AppDbContext>()
-            .UseSqlServer(connectionString)
-            .Options;
-        return new AppDbContext(options);
+        var options = new DbContextOptionsBuilder<AppDbContext>();
+        options.UseProvider(provider, connectionString);
+        return new AppDbContext(options.Options);
     }
 
     private static void LoadEnvFile()

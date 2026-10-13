@@ -21,9 +21,9 @@ public sealed class AuditLogService(IGenericRepository<AuditLog> auditLogs) : IA
         {
             var pattern = LikePattern.Contains(term);
             source = source.Where(a =>
-                EF.Functions.Like(a.Username, pattern, LikePattern.EscapeCharacter)
-                || EF.Functions.Like(a.EntityName, pattern, LikePattern.EscapeCharacter)
-                || EF.Functions.Like(a.EntityId, pattern, LikePattern.EscapeCharacter));
+                AppDbFunctions.Matches(a.Username, pattern)
+                || AppDbFunctions.Matches(a.EntityName, pattern)
+                || AppDbFunctions.Matches(a.EntityId, pattern));
         }
 
         if (query.UserId is { } userId)

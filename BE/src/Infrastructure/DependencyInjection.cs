@@ -35,11 +35,7 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>((provider, options) =>
         {
             var database = provider.GetRequiredService<IOptions<DatabaseOptions>>().Value;
-            if (database.Provider == DatabaseProvider.Sqlite)
-                options.UseSqlite(database.ConnectionString);
-            else
-                options.UseSqlServer(database.ConnectionString);
-
+            options.UseProvider(database.Provider, database.ConnectionString);
             options.AddInterceptors(provider.GetRequiredService<AuditSaveChangesInterceptor>());
         });
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -66,6 +62,21 @@ public static class DependencyInjection
 
         return services;
     }
+
+    /// <summary>
+    /// Chọn provider EF Core theo <c>DB_PROVIDER</c>. Dùng chung cho lúc chạy và cho <c>dotnet ef</c>
+    /// (<see cref="Persistence.DesignTimeDbContextFactory"/>) để hai nơi không lệch nhau.
+    /// </summary>
+    public static DbContextOptionsBuilder UseProvider(
+        this DbContextOptionsBuilder options,
+        DatabaseProvider provider,
+        string connectionString) => provider switch
+    {
+        DatabaseProvider.Postgres => options.UseNpgsql(connectionString),
+        DatabaseProvider.SqlServer => options.UseSqlServer(connectionString),
+        DatabaseProvider.Sqlite => options.UseSqlite(connectionString),
+        _ => throw new ArgumentOutOfRangeException(nameof(provider), provider, "DB_PROVIDER không hợp lệ.")
+    };
 
     /// <summary>Tạo bảng, chạy migration, seed dữ liệu nền và dữ liệu mẫu. Gọi một lần lúc khởi động.</summary>
     public static async Task InitializeDatabaseAsync(this IServiceProvider services, CancellationToken ct = default)

@@ -18,7 +18,9 @@ public static class EnvLoader
         ["CORS_ORIGINS"] = "Cors:Origins",
         ["DEMO_MODE"] = "Demo:Enabled",
         ["DEMO_PASSWORD"] = "Demo:Password",
-        ["DEMO_RESET_CRON"] = "Demo:ResetCron"
+        ["DEMO_RESET_CRON"] = "Demo:ResetCron",
+        // true khi chạy sau reverse proxy (Docker/Dokploy): tin X-Forwarded-For, X-Forwarded-Proto
+        ["BEHIND_PROXY"] = "BehindProxy"
     };
 
     public static void Load(WebApplicationBuilder builder)

@@ -8,8 +8,9 @@ using Microsoft.Extensions.Options;
 namespace Infrastructure.Persistence;
 
 /// <summary>
-/// Chuẩn bị DB lúc khởi động: SQL Server chạy migration, SQLite tạo bảng bằng EnsureCreated;
-/// sau đó đồng bộ dữ liệu nền (SystemSeeder); nếu <c>DEMO_MODE=true</c> và chưa có dữ liệu nghiệp vụ thì nạp dữ liệu mẫu.
+/// Chuẩn bị DB lúc khởi động: Postgres chạy migration (Infrastructure/Migrations); SQL Server và SQLite tạo bảng bằng
+/// EnsureCreated (migration EF phụ thuộc provider, không nuôi nhiều bộ); sau đó đồng bộ dữ liệu nền (SystemSeeder);
+/// nếu <c>DEMO_MODE=true</c> và chưa có dữ liệu nghiệp vụ thì nạp dữ liệu mẫu.
 /// </summary>
 public sealed class DatabaseInitializer(
     AppDbContext db,
@@ -22,14 +23,18 @@ public sealed class DatabaseInitializer(
     public async Task InitializeAsync(CancellationToken ct = default)
     {
         var database = databaseOptions.Value;
-        if (database.Provider == DatabaseProvider.Sqlite)
+        switch (database.Provider)
         {
-            EnsureSqliteDirectory(database.ConnectionString);
-            await db.Database.EnsureCreatedAsync(ct);
-        }
-        else
-        {
-            await db.Database.MigrateAsync(ct);
+            case DatabaseProvider.Postgres:
+                await db.Database.MigrateAsync(ct);
+                break;
+            case DatabaseProvider.Sqlite:
+                EnsureSqliteDirectory(database.ConnectionString);
+                await db.Database.EnsureCreatedAsync(ct);
+                break;
+            default:
+                await db.Database.EnsureCreatedAsync(ct);
+                break;
         }
 
         logger.LogInformation("CSDL sẵn sàng ({Provider}).", database.Provider);

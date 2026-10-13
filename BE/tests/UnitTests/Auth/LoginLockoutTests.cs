@@ -1,13 +1,7 @@
-using Application;
 using Application.DTOs.Auth;
 using Application.Interfaces.Services.Auth;
 using Domain.Common;
-using Infrastructure;
-using Microsoft.Data.Sqlite;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Hosting;
 using UnitTests.TestSupport;
 
 namespace UnitTests.Auth;
@@ -19,48 +13,18 @@ namespace UnitTests.Auth;
 /// </summary>
 public sealed class LoginLockoutTests : IAsyncLifetime
 {
-    private const string DemoPassword = "Demo@123";
+    private const string DemoPassword = SqliteTestHost.DemoPassword;
 
     private readonly FakeTimeProvider _time = new(new DateTimeOffset(2026, 10, 13, 2, 0, 0, TimeSpan.Zero));
-    private readonly string _connectionString = $"Data Source=lockout-{Guid.NewGuid():N};Mode=Memory;Cache=Shared";
-    private SqliteConnection _keepAlive = null!;
-    private ServiceProvider _services = null!;
+    private SqliteTestHost _host = null!;
 
     public async Task InitializeAsync()
     {
-        // Giữ một kết nối mở để DB SQLite trong bộ nhớ tồn tại suốt bài test.
-        _keepAlive = new SqliteConnection(_connectionString);
-        await _keepAlive.OpenAsync();
-
-        var configuration = new ConfigurationBuilder()
-            .AddInMemoryCollection(new Dictionary<string, string?>
-            {
-                ["Database:Provider"] = "Sqlite",
-                ["Database:ConnectionString"] = _connectionString,
-                ["Jwt:Key"] = new string('k', 48),
-                ["Jwt:Issuer"] = "unit-test",
-                ["Jwt:Audience"] = "unit-test",
-                ["Demo:Enabled"] = "false",
-                ["Demo:Password"] = DemoPassword
-            })
-            .Build();
-
-        var services = new ServiceCollection();
-        services.AddLogging();
-        services.AddSingleton<TimeProvider>(_time);
-        services.AddSingleton<IHostEnvironment>(new TestHostEnvironment());
-        services.AddApplication();
-        services.AddInfrastructure(configuration);
-        _services = services.BuildServiceProvider(new ServiceProviderOptions { ValidateScopes = true });
-
-        await _services.InitializeDatabaseAsync();
+        _host = new SqliteTestHost(_time);
+        await _host.StartAsync();
     }
 
-    public async Task DisposeAsync()
-    {
-        await _services.DisposeAsync();
-        await _keepAlive.DisposeAsync();
-    }
+    public async Task DisposeAsync() => await _host.DisposeAsync();
 
     [Fact]
     public async Task FiveWrongPasswords_LockLoginForFiveMinutes()
@@ -113,16 +77,8 @@ public sealed class LoginLockoutTests : IAsyncLifetime
 
     private async Task<AuthResponse> LoginAsync(string username, string password)
     {
-        await using var scope = _services.CreateAsyncScope();
+        await using var scope = _host.CreateScope();
         var auth = scope.ServiceProvider.GetRequiredService<IAuthService>();
         return await auth.LoginAsync(new LoginRequest { Username = username, Password = password });
-    }
-
-    private sealed class TestHostEnvironment : IHostEnvironment
-    {
-        public string EnvironmentName { get; set; } = Environments.Development;
-        public string ApplicationName { get; set; } = "UnitTests";
-        public string ContentRootPath { get; set; } = AppContext.BaseDirectory;
-        public IFileProvider ContentRootFileProvider { get; set; } = new NullFileProvider();
     }
 }
