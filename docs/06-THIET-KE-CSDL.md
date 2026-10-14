@@ -74,7 +74,7 @@ Mọi bảng có cột chung `Id`, `CreatedAt`, `CreatedBy`, `UpdatedAt`, `Updat
 | `Description` | `text` | | Mô tả chi tiết, đoạn văn thuần |
 | `FeaturesJson` | `text` | | Mảng JSON chuỗi, tối đa 6 × 80 ký tự |
 | `KeywordsJson` | `text` | | Mảng JSON chuỗi, tối đa 10 |
-| `DemoUrl` | `varchar(300)` | | Link Xem demo |
+| `DemoUrl` | `varchar(300)` | | Link Xem demo. Seed ghi link thật khi demo đã đưa lên mạng, không ghi thì suy ra `http://localhost:31NN` |
 | `SwaggerUrl` | `varchar(300)` | | Nội bộ |
 | `RepoUrl` | `varchar(300)` | | Nội bộ |
 | `OwnerName` | `varchar(100)` | | Người phụ trách, nội bộ |

@@ -9,7 +9,7 @@
 - [ ] Mở sẵn link danh mục, thử "Đăng nhập nhanh" vai trò Quản trị viên
 - [ ] Đặt lại dữ liệu demo (thanh công cụ demo → Đặt lại dữ liệu) để thẻ tổng hợp về đúng số mẫu: 18 demo, 13 đang hiển thị, 5 nổi bật
 - [ ] Mở một cửa sổ ẩn danh (hoặc điện thoại) cho các bước vai trò Khách, vì khách không đăng nhập
-- [ ] Kiểm tra demo POS Quán Cafe (`http://localhost:3102`) đang chạy, vì bước 5 sẽ bấm "Xem demo"
+- [ ] Kiểm tra demo POS Quán Cafe (`https://02-fnb-pos-cafe.vercel.app`) mở được, vì bước 5 sẽ bấm "Xem demo"
 - [ ] Chuẩn bị sẵn 3 ảnh chụp màn hình PNG rộng từ 1280 px cho demo Quản lý Phòng khám (bước 8)
 - [ ] Mở Zalo trên máy tính để dán thử nội dung "Sao chép gửi khách" (gửi cho chính mình)
 
