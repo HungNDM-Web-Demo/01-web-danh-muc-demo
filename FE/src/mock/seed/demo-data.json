@@ -113,7 +113,7 @@
       "problemSolved": "Khi gặp khách, nhân viên mất thời gian tìm đúng link demo và tài khoản; các demo nằm rải rác nên khách không thấy hết giải pháp công ty có.",
       "productType": "Website và trang quản trị",
       "devices": "Điện thoại, máy tính",
-      "demoUrl": "https://01-web-danh-muc-demo.vercel.app",
+      "demoUrl": "https://pumsoft.vercel.app",
       "shortDescription": "Một trang giới thiệu toàn bộ demo của công ty: lọc theo ngành, tìm nhanh, mở demo chỉ với một chạm.",
       "description": "Danh mục Demo gom mọi sản phẩm mẫu của công ty vào một đường dẫn duy nhất. Khách lọc theo ngành, xem ảnh và mở demo chạy thật ngay trên điện thoại. Nhân viên kinh doanh có khu thông tin nội bộ với kịch bản trình bày, câu hỏi khách hay hỏi và nút sao chép tài khoản gửi khách qua Zalo.",
       "features": [
@@ -225,7 +225,7 @@
       "problemSolved": "Ghi order bằng giấy dễ nhầm size, topping; cuối ca đối soát tiền mặt lâu và hay lệch; chủ quán không biết món nào bán chạy, giờ nào đông khách.",
       "productType": "Màn hình bán hàng trên tablet và web quản lý",
       "devices": "Tablet, máy tính",
-      "demoUrl": "https://02-fnb-pos-cafe.vercel.app",
+      "demoUrl": "https://pum-pos-cafe.vercel.app",
       "shortDescription": "Bán hàng tại quầy nhanh cho quán cafe, trà sữa: chọn size, topping, in bill, chốt ca không lệch tiền.",
       "description": "Thu ngân chạm vài lần là xong một đơn có đủ size, topping, mức đường đá; tiền thối tự tính, bill in rõ từng tùy chọn để quầy pha chế làm đúng. Cuối ca hệ thống tự tính tiền mặt phải có và gắn cờ ca lệch. Chủ quán xem doanh thu theo giờ, món bán chạy ngay trên điện thoại.",
       "features": [
@@ -360,7 +360,7 @@
       "problemSolved": "Phục vụ chạy qua lại báo món cho bếp dễ sót món; không nắm được bàn nào trống; khách đòi tách, gộp hóa đơn thì tính sai; món ra chậm không ai theo dõi.",
       "productType": "Web quản lý, tablet cho phục vụ và màn hình bếp",
       "devices": "Tablet, màn hình bếp, máy tính",
-      "demoUrl": "https://03-fnb-quan-ly-nha-hang.vercel.app",
+      "demoUrl": "https://pum-nha-hang.vercel.app",
       "shortDescription": "Sơ đồ bàn trực quan, gọi món theo bàn gửi thẳng xuống bếp, tách gộp hóa đơn chính xác cho nhà hàng.",
       "description": "Phục vụ mở bàn, gọi món trên tablet; món tự tách theo khu bếp nóng, bếp nguội, quầy bar và hiện ngay trên màn hình bếp kèm cảnh báo món chờ lâu. Thu ngân chuyển bàn, gộp bàn, tách hóa đơn theo món hoặc chia đều trong vài thao tác.",
       "features": [

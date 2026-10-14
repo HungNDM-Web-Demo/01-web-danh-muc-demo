@@ -41,7 +41,7 @@ Demo (thứ tự = số thứ tự × 10; trạng thái là giả định cho d�
 | 17 | Website Công ty | `website-cong-ty` | Website | Hoàn thiện | Bật | | 7 |
 | 18 | Chatbot Chăm sóc Khách hàng | `chatbot-cham-soc-khach-hang` | AI | Đang làm | Tắt | | 0 |
 
-Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở Quản lý Nhà trọ; chữ "POS" chỉ có ở tên POS Quán Cafe và POS Cửa hàng Bán lẻ; không demo nào chứa "karaoke". Tài khoản demo của POS Quán Cafe: `admin` (Quản trị viên), `quanly` (Quản lý quán), `thungan` (Thu ngân); link demo `https://02-fnb-pos-cafe.vercel.app` (demo đã đưa lên mạng; demo chưa khai báo `demoUrl` trong seed thì là `http://localhost:31NN`); Swagger `https://localhost:7102/swagger`.
+Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở Quản lý Nhà trọ; chữ "POS" chỉ có ở tên POS Quán Cafe và POS Cửa hàng Bán lẻ; không demo nào chứa "karaoke". Tài khoản demo của POS Quán Cafe: `admin` (Quản trị viên), `quanly` (Quản lý quán), `thungan` (Thu ngân); link demo `https://pum-pos-cafe.vercel.app` (demo đã đưa lên mạng; demo chưa khai báo `demoUrl` trong seed thì là `http://localhost:31NN`); Swagger `https://localhost:7102/swagger`.
 
 ---
 
@@ -66,7 +66,7 @@ Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở 
 | Mã | UC | Tình huống | Vai trò | Các bước | Kết quả mong đợi |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | TC-10 | UC-02 | Xem chi tiết | Khách | 1. Mở `/demos/pos-quan-cafe` 2. Xem mã nguồn trang và phản hồi API của trang | Có tên, nhãn F&B, nhãn Hoàn thiện, 5 ảnh, tính năng nổi bật, bảng tài khoản `admin`, `quanly`, `thungan` kèm hướng dẫn "Đăng nhập nhanh". Không có khung "Thông tin nội bộ"; mã nguồn và API không chứa mật khẩu demo, ghi chú nội bộ, link Swagger |
-| TC-11 | UC-02 | Bấm Xem demo | Khách | 1. Ở trang chi tiết POS Quán Cafe, bấm "Xem demo" | Tab mới mở `https://02-fnb-pos-cafe.vercel.app`; tab danh mục vẫn giữ nguyên |
+| TC-11 | UC-02 | Bấm Xem demo | Khách | 1. Ở trang chi tiết POS Quán Cafe, bấm "Xem demo" | Tab mới mở `https://pum-pos-cafe.vercel.app`; tab danh mục vẫn giữ nguyên |
 | TC-12 | UC-02 | Xem ảnh phóng to | Khách | 1. Bấm ảnh nhỏ thứ 2 2. Bấm phím → 3. Bấm Esc | Hộp xem ảnh mở ở ảnh 2, chú thích hiển thị; bước 2 sang ảnh 3; bước 3 đóng hộp. Trên 375×812 vuốt ngang chuyển được ảnh |
 | TC-13 | UC-02 | Demo Sắp ra mắt | Khách | 1. Mở `/demos/quan-ly-phong-kham` | Không có nút "Xem demo"; có dòng "Demo đang hoàn thiện, gọi hotline để được giới thiệu trực tiếp"; dùng ảnh mặc định màu nhóm Dịch vụ |
 | TC-14 | UC-02 | Demo không hiển thị | Khách | 1. Mở `/demos/hrm-cham-cong-tinh-luong` 2. Mở `/demos/khong-co` | Cả hai hiện trang "Không tìm thấy demo" có nút về danh mục |
@@ -80,7 +80,7 @@ Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở 
 | TC-17 | UC-03 | Khung thông tin nội bộ | Quản trị viên | 1. Lọc F&B 2. Bấm POS Quán Cafe | Bảng còn 3 dòng. Trang chi tiết có khung "Thông tin nội bộ": trạng thái Hoàn thiện, người phụ trách, mật khẩu demo (che, có nút hiện và sao chép), link `https://localhost:7102/swagger`, repo, ghi chú, kịch bản, câu hỏi khách hay hỏi |
 | TC-18 | UC-03 | Xem trước demo chưa công khai | Quản trị viên | 1. Ở Quản lý demo bấm HRM Chấm công Tính lương | Trang chi tiết mở, có dải nhãn vàng "Xem trước, khách không thấy trang này" |
 | TC-19 | UC-03 | Chưa đăng nhập thì không có thông tin nội bộ (viết lại: không còn vai trò Nhân viên để bỏ quyền) | Khách, Quản trị viên | 1. Ở cửa sổ ẩn danh mở `/demos/pos-quan-cafe` 2. Mở `/demos/hrm-cham-cong-tinh-luong` 3. Gọi `GET /api/demos/by-slug/pos-quan-cafe` không kèm token 4. Đăng nhập `admin` ở cùng cửa sổ, tải lại trang chi tiết POS Quán Cafe | Bước 1 không có khung nội bộ, không có nút "Sao chép gửi khách". Bước 2 hiện "Không tìm thấy demo". Bước 3 trả 401. Bước 4 khung nội bộ và nút "Sao chép gửi khách" xuất hiện |
-| TC-20 | UC-04 | Sao chép gửi khách | Quản trị viên | 1. Ở chi tiết POS Quán Cafe bấm "Sao chép gửi khách" 2. Để trống "Kèm mật khẩu", bấm "Sao chép" 3. Dán vào một ô văn bản | Báo "Đã sao chép". Nội dung đúng mẫu BR-17: dòng "POS Quán Cafe", "Xem demo: https://02-fnb-pos-cafe.vercel.app", "Tài khoản: admin (Quản trị viên), quanly (Quản lý quán), thungan (Thu ngân)", dòng cách vào, link `http://localhost:3101/demos/pos-quan-cafe`; không có dòng mật khẩu |
+| TC-20 | UC-04 | Sao chép gửi khách | Quản trị viên | 1. Ở chi tiết POS Quán Cafe bấm "Sao chép gửi khách" 2. Để trống "Kèm mật khẩu", bấm "Sao chép" 3. Dán vào một ô văn bản | Báo "Đã sao chép". Nội dung đúng mẫu BR-17: dòng "POS Quán Cafe", "Xem demo: https://pum-pos-cafe.vercel.app", "Tài khoản: admin (Quản trị viên), quanly (Quản lý quán), thungan (Thu ngân)", dòng cách vào, link `http://localhost:3101/demos/pos-quan-cafe`; không có dòng mật khẩu |
 | TC-21 | UC-04 | Sao chép link danh mục đang lọc | Quản trị viên | 1. Ở danh mục bấm "Dịch vụ" 2. Bấm "Sao chép link" 3. Mở link vừa chép ở cửa sổ ẩn danh | Link là `http://localhost:3101/?nganh=dich-vu`; cửa sổ ẩn danh hiện đúng 3 thẻ như TC-08 |
 
 ### 2.4. Thêm, sửa demo và ảnh chụp

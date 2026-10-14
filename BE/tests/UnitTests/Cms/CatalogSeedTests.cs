@@ -64,7 +64,7 @@ public sealed class CatalogSeedTests : IAsyncLifetime
         Assert.Equal("F&B", demo.Industry.Name);
         Assert.Equal(5, demo.Screenshots.Count);
         Assert.Equal(["admin", "quanly", "thungan"], demo.Accounts.Select(a => a.Username));
-        Assert.Equal("https://02-fnb-pos-cafe.vercel.app", demo.DemoUrl);
+        Assert.Equal("https://pum-pos-cafe.vercel.app", demo.DemoUrl);
         Assert.Equal(["Menu QR Gọi món", "Quản lý Nhà hàng"], demo.Related.Select(r => r.Name));
 
         var json = JsonSerializer.Serialize(lookup, new JsonSerializerOptions(JsonSerializerDefaults.Web));
