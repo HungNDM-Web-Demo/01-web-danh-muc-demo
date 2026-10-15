@@ -487,6 +487,7 @@
       "problemSolved": "Giờ cao điểm thiếu người nhận order; menu giấy cũ, đổi giá phải in lại; khách chờ lâu mới gọi thêm món hoặc thanh toán được.",
       "productType": "Web cho khách trên điện thoại và web quản lý",
       "devices": "Điện thoại của khách, tablet, máy tính",
+      "demoUrl": "https://pum-menu-qr.vercel.app",
       "shortDescription": "Khách quét QR tại bàn để xem menu có ảnh và tự gọi món, quán nhận đơn ngay, bớt chạy bàn giờ cao điểm.",
       "description": "Mỗi bàn có một mã QR riêng. Khách quét bằng điện thoại, xem menu có ảnh, tự gọi món, gọi nhân viên hoặc yêu cầu thanh toán. Nhiều điện thoại cùng bàn gom chung một phiên. Quán nhận đơn theo thời gian thực, báo hết món một chạm và đổi giá không cần in lại menu.",
       "features": [
