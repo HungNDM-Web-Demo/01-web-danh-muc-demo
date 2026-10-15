@@ -16,6 +16,12 @@ export const appConfig = {
 
   apiUrl: (process.env.NEXT_PUBLIC_API_URL || 'https://localhost:7101').trim().replace(/\/+$/, ''),
 
+  /**
+   * Chỉ phần công khai (NEXT_PUBLIC_PUBLIC_ONLY=true): ẩn mọi lối vào đăng nhập, /login và khu quản trị
+   * chuyển về trang chủ. Dùng cho bản quảng bá chạy dữ liệu mẫu, không có BE.
+   */
+  publicOnly: process.env.NEXT_PUBLIC_PUBLIC_ONLY === 'true',
+
   /** Thanh công cụ demo nổi góc dưới phải (NEXT_PUBLIC_DEMO_TOOLBAR=true) */
   demoToolbar: process.env.NEXT_PUBLIC_DEMO_TOOLBAR === 'true',
   /** Mật khẩu chung của tài khoản demo ở chế độ mock (trùng DEMO_PASSWORD của BE) */

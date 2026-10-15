@@ -86,7 +86,7 @@ export function PublicHeader() {
               </a>
             </Button>
           )}
-          {hydrated && isAuthenticated ? (
+          {appConfig.publicOnly ? null : hydrated && isAuthenticated ? (
             <Button
               asChild
               variant="outline"

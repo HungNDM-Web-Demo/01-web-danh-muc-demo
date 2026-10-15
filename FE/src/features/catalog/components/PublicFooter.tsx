@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Globe, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { BrandMark } from '@/components/shared/BrandLogo'
 import { Button } from '@/components/ui/button'
+import { appConfig } from '@/config/app.config'
 import { routePath } from '@/config/route-path'
 import { usePublicBrand } from '../hooks/use-public-brand'
 
@@ -133,12 +134,14 @@ export function PublicFooter() {
             <p>
               © {year} {brand.companyName}
             </p>
-            <Link
-              href={routePath.login}
-              className="hover:text-foreground w-fit underline-offset-4 hover:underline"
-            >
-              Đăng nhập quản trị
-            </Link>
+            {!appConfig.publicOnly && (
+              <Link
+                href={routePath.login}
+                className="hover:text-foreground w-fit underline-offset-4 hover:underline"
+              >
+                Đăng nhập quản trị
+              </Link>
+            )}
           </div>
         </div>
       </div>
