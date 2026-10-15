@@ -255,6 +255,11 @@ export function seedDemos(): DemoRecord[] {
     const folder = demoFolder(demo.number, demo.projectCode)
     const requiresLogin = demo.requiresLogin ?? true
     const createdAt = daysAgo(demo.createdDaysAgo ?? 60, '09:00')
+    // Bản quảng bá (publicOnly): demo chưa có link thật thì hiện "Sắp ra mắt", không trỏ về localhost
+    const notDeployed =
+      appConfig.publicOnly &&
+      !demo.demoUrl &&
+      (demo.devStatus === 'DemoDuoc' || demo.devStatus === 'HoanThien')
     return {
       id: demoIdOf(demo.projectCode),
       number: demo.number,
@@ -279,9 +284,9 @@ export function seedDemos(): DemoRecord[] {
       demoPassword: demo.demoPassword ?? (requiresLogin ? appConfig.demoPassword : null),
       internalNotes: demo.internalNotes ?? null,
       demoScript: demo.demoScript ?? null,
-      devStatus: demo.devStatus,
+      devStatus: notDeployed ? 'DangLam' : demo.devStatus,
       isVisible: demo.isVisible ?? false,
-      isFeatured: demo.isFeatured ?? false,
+      isFeatured: notDeployed ? false : (demo.isFeatured ?? false),
       sortOrder: demo.sortOrder ?? demo.number * 10,
       firstPublishedAt:
         demo.firstPublishedDaysAgo === null || demo.firstPublishedDaysAgo === undefined
