@@ -27,7 +27,7 @@ Demo (thứ tự = số thứ tự × 10; trạng thái là giả định cho d�
 | 03 | Quản lý Nhà hàng | `quan-ly-nha-hang` | F&B | Demo được | Bật | | 4 |
 | 04 | Menu QR Gọi món | `menu-qr-goi-mon` | F&B | Demo được | Bật | ✓ | 4 |
 | 05 | Website Bán hàng | `website-ban-hang` | Bán lẻ | Hoàn thiện | Bật | ✓ | 4 |
-| 06 | Landing Page Bán hàng | `landing-page-ban-hang` | Bán lẻ | Mới tạo | Tắt | | 0 |
+| 06 | Landing Page Bán hàng | `landing-page-ban-hang` | Bán lẻ | Demo được | Bật | | 4 |
 | 07 | POS Cửa hàng Bán lẻ | `pos-cua-hang-ban-le` | Bán lẻ | Demo được | Bật | | 4 |
 | 08 | Quản lý Kho | `quan-ly-kho` | Bán lẻ | Demo được | Bật | | 4 |
 | 09 | Quản lý Spa Salon | `quan-ly-spa-salon` | Dịch vụ | Demo được | Bật | ✓ | 4 |
@@ -51,15 +51,15 @@ Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở 
 
 | Mã | UC | Tình huống | Vai trò | Các bước | Kết quả mong đợi |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| TC-01 | UC-01 | Mở danh mục | Khách | 1. Mở `/` | 13 thẻ theo thứ tự: POS Quán Cafe, Menu QR Gọi món, Website Bán hàng, Quản lý Spa Salon, CRM Quản lý Khách hàng (5 thẻ nổi bật), Quản lý Nhà hàng, POS Cửa hàng Bán lẻ, Quản lý Kho, Cho thuê Sân thể thao, Quản lý Nhà trọ, Website Công ty, Quản lý Phòng khám, Quản lý Trung tâm Ngoại ngữ. Hai thẻ cuối có nhãn "Sắp ra mắt", không có nút "Xem demo". Không có Danh mục Demo, Landing Page, HRM, Quản lý Công việc, Chatbot |
-| TC-02 | UC-01 | Hàng nút nhóm ngành | Khách | 1. Xem hàng nút nhóm ngành | Thứ tự và số: Tất cả 13, F&B 3, Bán lẻ 3, Dịch vụ 3, Giáo dục 1, Doanh nghiệp 1, Bất động sản 1, Website 1. Không có Vận tải, App di động, AI, Ngành khác |
+| TC-01 | UC-01 | Mở danh mục | Khách | 1. Mở `/` | 14 thẻ theo thứ tự: POS Quán Cafe, Menu QR Gọi món, Website Bán hàng, Quản lý Spa Salon, CRM Quản lý Khách hàng (5 thẻ nổi bật), Quản lý Nhà hàng, Landing Page Bán hàng, POS Cửa hàng Bán lẻ, Quản lý Kho, Cho thuê Sân thể thao, Quản lý Nhà trọ, Website Công ty, Quản lý Phòng khám, Quản lý Trung tâm Ngoại ngữ. Hai thẻ cuối có nhãn "Sắp ra mắt", không có nút "Xem demo". Không có Danh mục Demo, HRM, Quản lý Công việc, Chatbot |
+| TC-02 | UC-01 | Hàng nút nhóm ngành | Khách | 1. Xem hàng nút nhóm ngành | Thứ tự và số: Tất cả 14, F&B 3, Bán lẻ 4, Dịch vụ 3, Giáo dục 1, Doanh nghiệp 1, Bất động sản 1, Website 1. Không có Vận tải, App di động, AI, Ngành khác |
 | TC-03 | UC-01 | Lọc theo nhóm ngành | Khách | 1. Bấm "F&B" | Còn 3 thẻ: POS Quán Cafe, Menu QR Gọi món, Quản lý Nhà hàng; nút F&B tô đậm; đường dẫn `/?nganh=fnb` |
 | TC-04 | UC-01 | Tìm không dấu | Khách | 1. Gõ "nha tro" | Còn 1 thẻ Quản lý Nhà trọ, dòng "Tìm thấy 1 demo" |
 | TC-05 | UC-01 | Tìm kết hợp nhóm ngành | Khách | 1. Bấm "Bán lẻ" 2. Gõ "POS" | Còn 1 thẻ POS Cửa hàng Bán lẻ; đường dẫn `/?nganh=ban-le&q=POS` |
-| TC-06 | UC-01 | Không có kết quả | Khách | 1. Gõ "karaoke" 2. Bấm "Xóa bộ lọc" | Bước 1: trạng thái trống "Chưa có demo phù hợp", có hotline. Bước 2: trở lại 13 thẻ, ô tìm kiếm trống |
-| TC-07 | UC-01 | Từ khóa 1 ký tự | Khách | 1. Gõ "p" | Vẫn 13 thẻ, gợi ý "Nhập ít nhất 2 ký tự" |
+| TC-06 | UC-01 | Không có kết quả | Khách | 1. Gõ "karaoke" 2. Bấm "Xóa bộ lọc" | Bước 1: trạng thái trống "Chưa có demo phù hợp", có hotline. Bước 2: trở lại 14 thẻ, ô tìm kiếm trống |
+| TC-07 | UC-01 | Từ khóa 1 ký tự | Khách | 1. Gõ "p" | Vẫn 14 thẻ, gợi ý "Nhập ít nhất 2 ký tự" |
 | TC-08 | UC-01 | Mở link có sẵn bộ lọc | Khách | 1. Mở `/?nganh=dich-vu` | Nút Dịch vụ tô đậm; 3 thẻ theo thứ tự Quản lý Spa Salon, Cho thuê Sân thể thao, Quản lý Phòng khám (Sắp ra mắt) |
-| TC-09 | UC-01 | Tham số nhóm ngành không hợp lệ | Khách | 1. Mở `/?nganh=van-tai` 2. Mở `/?nganh=abc` | Cả hai lần đều hiển thị "Tất cả" với 13 thẻ, không báo lỗi |
+| TC-09 | UC-01 | Tham số nhóm ngành không hợp lệ | Khách | 1. Mở `/?nganh=van-tai` 2. Mở `/?nganh=abc` | Cả hai lần đều hiển thị "Tất cả" với 14 thẻ, không báo lỗi |
 
 ### 2.2. Chi tiết demo
 
@@ -76,7 +76,7 @@ Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở 
 
 | Mã | UC | Tình huống | Vai trò | Các bước | Kết quả mong đợi |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| TC-16 | UC-03 | Thẻ tổng hợp | Quản trị viên | 1. Đăng nhập nhanh `admin` | Vào Quản lý demo; thẻ: Tổng 18, Hoàn thiện 5, Demo được 7, Đang làm 4, Mới tạo 2, Đang hiển thị 13, Nổi bật 5/6. Có nút "Thêm demo", "Sắp xếp" và nút "Sửa" trên từng dòng |
+| TC-16 | UC-03 | Thẻ tổng hợp | Quản trị viên | 1. Đăng nhập nhanh `admin` | Vào Quản lý demo; thẻ: Tổng 18, Hoàn thiện 5, Demo được 8, Đang làm 4, Mới tạo 1, Đang hiển thị 14, Nổi bật 5/6. Có nút "Thêm demo", "Sắp xếp" và nút "Sửa" trên từng dòng |
 | TC-17 | UC-03 | Khung thông tin nội bộ | Quản trị viên | 1. Lọc F&B 2. Bấm POS Quán Cafe | Bảng còn 3 dòng. Trang chi tiết có khung "Thông tin nội bộ": trạng thái Hoàn thiện, người phụ trách, mật khẩu demo (che, có nút hiện và sao chép), link `https://localhost:7102/swagger`, repo, ghi chú, kịch bản, câu hỏi khách hay hỏi |
 | TC-18 | UC-03 | Xem trước demo chưa công khai | Quản trị viên | 1. Ở Quản lý demo bấm HRM Chấm công Tính lương | Trang chi tiết mở, có dải nhãn vàng "Xem trước, khách không thấy trang này" |
 | TC-19 | UC-03 | Chưa đăng nhập thì không có thông tin nội bộ (viết lại: không còn vai trò Nhân viên để bỏ quyền) | Khách, Quản trị viên | 1. Ở cửa sổ ẩn danh mở `/demos/pos-quan-cafe` 2. Mở `/demos/hrm-cham-cong-tinh-luong` 3. Gọi `GET /api/demos/by-slug/pos-quan-cafe` không kèm token 4. Đăng nhập `admin` ở cùng cửa sổ, tải lại trang chi tiết POS Quán Cafe | Bước 1 không có khung nội bộ, không có nút "Sao chép gửi khách". Bước 2 hiện "Không tìm thấy demo". Bước 3 trả 401. Bước 4 khung nội bộ và nút "Sao chép gửi khách" xuất hiện |
@@ -87,11 +87,11 @@ Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở 
 
 | Mã | UC | Tình huống | Vai trò | Các bước | Kết quả mong đợi |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| TC-22 | UC-05 | Thêm demo mới | Quản trị viên | 1. Quản lý demo → Thêm demo 2. Nhập mã `fnb-man-hinh-bep`, tên "Màn hình Bếp KDS", nhóm F&B, ý tưởng gốc 1.4, mô tả ngắn 92 ký tự, 4 tính năng, link `http://localhost:3119` 3. Lưu | Số thứ tự gợi ý 19; slug `man-hinh-bep-kds`; thư mục `19-fnb-man-hinh-bep`; trạng thái Mới tạo, Hiển thị tắt. Thẻ tổng hợp: Tổng 19, Mới tạo 3. Danh mục vẫn 13 thẻ |
+| TC-22 | UC-05 | Thêm demo mới | Quản trị viên | 1. Quản lý demo → Thêm demo 2. Nhập mã `fnb-man-hinh-bep`, tên "Màn hình Bếp KDS", nhóm F&B, ý tưởng gốc 1.4, mô tả ngắn 92 ký tự, 4 tính năng, link `http://localhost:3119` 3. Lưu | Số thứ tự gợi ý 19; slug `man-hinh-bep-kds`; thư mục `19-fnb-man-hinh-bep`; trạng thái Mới tạo, Hiển thị tắt. Thẻ tổng hợp: Tổng 19, Mới tạo 2. Danh mục vẫn 14 thẻ |
 | TC-23 | UC-05 | Mã dự án trùng | Quản trị viên | 1. Thêm demo với mã `fnb-pos-cafe` 2. Lưu | Báo lỗi tại ô mã dự án, không lưu |
 | TC-24 | UC-05 | Vượt giới hạn độ dài | Quản trị viên | 1. Thêm demo, mô tả ngắn 170 ký tự, 7 tính năng nổi bật 2. Lưu | Báo lỗi tại ô mô tả ngắn (50–160 ký tự) và ô tính năng (tối đa 6); không lưu |
 | TC-25 | UC-05 | Sửa demo đang hiển thị làm mất điều kiện | Quản trị viên | 1. Sửa Quản lý Nhà hàng, xóa bớt còn 2 tính năng 2. Lưu 3. Hoàn tác, xóa hết tài khoản demo 4. Lưu | Bước 2 và 4 đều bị từ chối với thông báo "Demo đang hiển thị, cần tắt hiển thị trước"; dữ liệu giữ nguyên |
-| TC-26 | UC-05 | Xóa demo (viết lại: bỏ bước đổi sang Quản lý) | Quản trị viên | 1. Chọn POS Quán Cafe 2. Chọn demo vừa tạo ở TC-22, bấm Xóa, xác nhận 3. Tìm `fnb-man-hinh-bep` trong ô tìm của bảng | Bước 1 nút Xóa vô hiệu, chú thích "Demo đã từng công khai, chỉ tắt hiển thị được". Bước 2 xóa thành công, Tổng về 18, Mới tạo về 2. Bước 3 không còn dòng nào |
+| TC-26 | UC-05 | Xóa demo (viết lại: bỏ bước đổi sang Quản lý) | Quản trị viên | 1. Chọn POS Quán Cafe 2. Chọn demo vừa tạo ở TC-22, bấm Xóa, xác nhận 3. Tìm `fnb-man-hinh-bep` trong ô tìm của bảng | Bước 1 nút Xóa vô hiệu, chú thích "Demo đã từng công khai, chỉ tắt hiển thị được". Bước 2 xóa thành công, Tổng về 18, Mới tạo về 1. Bước 3 không còn dòng nào |
 | TC-27 | UC-06 | Tải ảnh hợp lệ | Quản trị viên | 1. Mở Quản lý Phòng khám, tab Ảnh chụp 2. Tải 3 ảnh PNG 1440×900, mỗi ảnh khoảng 600 KB, nhập chú thích 3. Lưu | 3 ảnh hiện theo thứ tự tải; ảnh đầu có nhãn "Đại diện"; thẻ Phòng khám trên danh mục dùng ảnh này |
 | TC-28 | UC-06 | Ảnh không hợp lệ | Quản trị viên | 1. Ở Quản lý Phòng khám tải cùng lúc: JPG 3 MB, PNG rộng 1024 px, GIF 500 KB | Cả 3 bị từ chối với lý do riêng: "Ảnh vượt 2 MB", "Ảnh cần rộng tối thiểu 1280 px", "Chỉ nhận JPG, PNG, WebP" |
 | TC-29 | UC-06 | Vượt 8 ảnh | Quản trị viên | 1. Mở Website Công ty (7 ảnh) 2. Chọn thêm 3 ảnh hợp lệ | Chỉ nhận ảnh đầu tiên trong 3 ảnh, báo "Mỗi demo tối đa 8 ảnh"; tổng 8 ảnh |
@@ -104,9 +104,9 @@ Ràng buộc dữ liệu cho test tìm kiếm: cụm "nhà trọ" chỉ có ở 
 | TC-31 | UC-07 | Chuyển Demo được khi thiếu ảnh | Quản trị viên | 1. Đặt lại dữ liệu 2. Đổi trạng thái Quản lý Phòng khám (đang hiển thị, 0 ảnh) sang Demo được | Từ chối, liệt kê "Cần ít nhất 1 ảnh chụp màn hình"; trạng thái vẫn Đang làm; thẻ vẫn "Sắp ra mắt" |
 | TC-32 | UC-07 | Chuyển Demo được khi đủ điều kiện | Quản trị viên, Khách | 1. Làm TC-27 2. Đổi Quản lý Phòng khám sang Demo được 3. Khách tải lại danh mục | Lưu thành công, không hỏi lý do; tab Lịch sử có dòng "Đang làm → Demo được", người đổi `admin`, thời điểm; ngày công khai đầu tiên là hôm nay. Thẻ Phòng khám có nút "Xem demo", nằm giữa Quản lý Kho và Cho thuê Sân thể thao |
 | TC-33 | UC-07 | Lùi bậc cần lý do | Quản trị viên | 1. Đổi Website Bán hàng từ Hoàn thiện sang Demo được, để trống lý do 2. Nhập lý do "BE đang nâng cấp phiên bản .NET", lưu | Bước 1 nút Lưu vô hiệu. Bước 2 lưu thành công; thẻ đổi nhãn Demo được, vẫn nổi bật |
-| TC-34 | UC-07 | Lùi về Đang làm khi đang công khai | Quản trị viên, Khách | 1. Đổi Quản lý Kho từ Demo được sang Đang làm, lý do "Đang sửa lỗi phiếu nhập" 2. Khách tải lại danh mục | Thẻ Quản lý Kho có nhãn "Sắp ra mắt", không có nút "Xem demo", đứng đầu phần Sắp ra mắt ở cuối danh mục (thứ tự 80 nhỏ nhất trong phần này); nút Bán lẻ vẫn ghi 3 |
-| TC-35 | UC-07 | Bật hiển thị demo Mới tạo | Quản trị viên | 1. Mở Landing Page Bán hàng | Công tắc Hiển thị vô hiệu, chú thích "Chuyển sang Đang làm trở lên trước" |
-| TC-36 | UC-07 | Tắt rồi bật lại hiển thị | Quản trị viên, Khách | 1. Tắt Hiển thị Quản lý Nhà trọ 2. Khách tải lại danh mục, mở `/demos/quan-ly-nha-tro` 3. Bật lại Hiển thị | Bước 2: còn 12 thẻ, không còn nút Bất động sản, link chi tiết hiện "Không tìm thấy demo". Bước 3: trở lại 13 thẻ |
+| TC-34 | UC-07 | Lùi về Đang làm khi đang công khai | Quản trị viên, Khách | 1. Đổi Quản lý Kho từ Demo được sang Đang làm, lý do "Đang sửa lỗi phiếu nhập" 2. Khách tải lại danh mục | Thẻ Quản lý Kho có nhãn "Sắp ra mắt", không có nút "Xem demo", đứng đầu phần Sắp ra mắt ở cuối danh mục (thứ tự 80 nhỏ nhất trong phần này); nút Bán lẻ vẫn ghi 4 |
+| TC-35 | UC-07 | Bật hiển thị demo Mới tạo | Quản trị viên | 1. Mở Quản lý Công việc | Công tắc Hiển thị vô hiệu, chú thích "Chuyển sang Đang làm trở lên trước" |
+| TC-36 | UC-07 | Tắt rồi bật lại hiển thị | Quản trị viên, Khách | 1. Tắt Hiển thị Quản lý Nhà trọ 2. Khách tải lại danh mục, mở `/demos/quan-ly-nha-tro` 3. Bật lại Hiển thị | Bước 2: còn 13 thẻ, không còn nút Bất động sản, link chi tiết hiện "Không tìm thấy demo". Bước 3: trở lại 14 thẻ |
 | TC-37 | UC-08 | Đánh dấu nổi bật quá giới hạn | Quản trị viên | 1. Bật Sắp xếp 2. Đánh dấu nổi bật Cho thuê Sân thể thao 3. Đánh dấu Quản lý Nhà hàng 4. Đánh dấu Quản lý Trung tâm Ngoại ngữ | Bước 2: "Nổi bật 6/6". Bước 3: báo "Tối đa 6 demo nổi bật, hãy bỏ bớt một demo". Bước 4: ngôi sao vô hiệu vì demo Sắp ra mắt |
 | TC-38 | UC-08 | Kéo thả sắp xếp | Quản trị viên, Khách | 1. Bật Sắp xếp 2. Kéo Website Công ty lên đầu bảng 3. Lưu thứ tự 4. Khách tải lại danh mục | Thứ tự đánh lại: Website Công ty 10, Danh mục Demo 20, POS Quán Cafe 30… Trên danh mục, Website Công ty đứng ngay sau nhóm demo nổi bật, trước Quản lý Nhà hàng (không nổi bật nên không vượt lên trên demo nổi bật) |
 | TC-39 | UC-08 | Sắp xếp khi đang lọc | Quản trị viên | 1. Lọc nhóm F&B 2. Bấm "Sắp xếp" | Nút vô hiệu, chú thích "Bỏ lọc để sắp xếp toàn bộ danh sách" |

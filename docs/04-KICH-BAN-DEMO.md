@@ -7,7 +7,7 @@
 ## 1. Chuẩn bị trước buổi demo
 
 - [ ] Mở sẵn link danh mục, thử "Đăng nhập nhanh" vai trò Quản trị viên
-- [ ] Đặt lại dữ liệu demo (thanh công cụ demo → Đặt lại dữ liệu) để thẻ tổng hợp về đúng số mẫu: 18 demo, 13 đang hiển thị, 5 nổi bật
+- [ ] Đặt lại dữ liệu demo (thanh công cụ demo → Đặt lại dữ liệu) để thẻ tổng hợp về đúng số mẫu: 18 demo, 14 đang hiển thị, 5 nổi bật
 - [ ] Mở một cửa sổ ẩn danh (hoặc điện thoại) cho các bước vai trò Khách, vì khách không đăng nhập
 - [ ] Kiểm tra demo POS Quán Cafe (`https://pum-pos-cafe.vercel.app`) mở được, vì bước 5 sẽ bấm "Xem demo"
 - [ ] Chuẩn bị sẵn 3 ảnh chụp màn hình PNG rộng từ 1280 px cho demo Quản lý Phòng khám (bước 8)
@@ -33,9 +33,9 @@ Mật khẩu: giá trị `DEMO_PASSWORD` trong `.env`, hoặc bấm "Đăng nh�
 
 | # | Vai trò | Thao tác | Điểm cần nhấn mạnh |
 | :---: | :--- | :--- | :--- |
-| 1 | Quản trị viên | Đăng nhập nhanh `admin`; trang Quản lý demo mở ra với thẻ tổng hợp: 5 Hoàn thiện, 7 Demo được, 4 Đang làm, 2 Mới tạo | Nhìn một màn hình biết ngay demo nào mang đi gặp khách được |
+| 1 | Quản trị viên | Đăng nhập nhanh `admin`; trang Quản lý demo mở ra với thẻ tổng hợp: 5 Hoàn thiện, 8 Demo được, 4 Đang làm, 1 Mới tạo | Nhìn một màn hình biết ngay demo nào mang đi gặp khách được |
 | 2 | Quản trị viên | Lọc F&B, mở POS Quán Cafe; khung "Thông tin nội bộ" hiện mật khẩu, kịch bản 12 bước, câu hỏi khách hay hỏi | 5 phút trước buổi gặp là ôn xong kịch bản, không phải lục tài liệu |
-| 3 | Khách | Mở trang danh mục ở cửa sổ ẩn danh: 13 thẻ, 5 demo nổi bật đứng đầu, 2 thẻ "Sắp ra mắt" ở cuối | Một link duy nhất, không cần đăng nhập, khách thấy toàn bộ giải pháp PUM có |
+| 3 | Khách | Mở trang danh mục ở cửa sổ ẩn danh: 14 thẻ, 5 demo nổi bật đứng đầu, 2 thẻ "Sắp ra mắt" ở cuối | Một link duy nhất, không cần đăng nhập, khách thấy toàn bộ giải pháp PUM có |
 | 4 | Khách | Bấm "F&B" còn 3 demo; gõ "qr goi mon" (không dấu) còn đúng Menu QR Gọi món | Lọc theo ngành, gõ không dấu vẫn tìm đúng; xem tốt trên điện thoại |
 | 5 | Khách | Mở chi tiết POS Quán Cafe: xem ảnh phóng to, tính năng, bảng tài khoản; bấm "Xem demo", đăng nhập nhanh vai trò Thu ngân | Từ danh mục tới demo chạy thật chỉ 2 lần bấm; trang công khai không lộ mật khẩu |
 | 6 | Khách | Bấm "Dịch vụ": thấy Quản lý Phòng khám gắn nhãn "Sắp ra mắt", không có nút Xem demo; bấm hotline, Zalo ở đầu trang | Khách thấy cả lộ trình sản phẩm; muốn xem sâu hơn thì gọi hoặc nhắn Zalo ngay trên trang |

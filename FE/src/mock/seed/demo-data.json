@@ -728,11 +728,13 @@
       "devices": "Điện thoại, máy tính",
       "demoUrl": "https://pum-landing-page.vercel.app",
       "shortDescription": "Trang đích bán một sản phẩm chạy quảng cáo: đếm ngược khuyến mãi, chọn combo, form đặt hàng COD.",
-      "description": "",
+      "description": "Trang dài cho một sản phẩm chủ lực: hero có đếm ngược, nỗi lo của khách, công dụng, thành phần, ảnh trước sau, đánh giá, cam kết và câu hỏi thường gặp. Khách chọn combo, điền thông tin, đặt hàng COD; nguồn quảng cáo đi kèm đơn. Telesale gọi xác nhận, xử lý đơn trùng; quản lý xem đơn, doanh thu, chi phí quảng cáo theo từng nguồn.",
       "features": [
         "Trang dài thuyết phục, đánh giá khách hàng",
         "Đếm ngược khuyến mãi, chọn combo",
-        "Form đặt hàng COD, ghi nhận nguồn quảng cáo"
+        "Form đặt hàng COD, ghi nhận nguồn quảng cáo",
+        "Telesale gọi xác nhận, xử lý đơn trùng",
+        "Báo cáo đơn, doanh thu, chi phí theo nguồn"
       ],
       "keywords": [
         "landing page",
@@ -740,24 +742,74 @@
         "cod",
         "combo"
       ],
-      "requiresLogin": false,
+      "requiresLogin": true,
       "ownerName": "Mạnh Hùng (Pum)",
-      "internalNotes": "Mới tạo, chưa có giao diện. Phần khách xem không cần đăng nhập.",
-      "demoScript": "",
-      "devStatus": "MoiTao",
-      "isVisible": false,
+      "internalNotes": "Sản phẩm mẫu là serum của shop hư cấu Diệp Lam. Phần khách xem không cần đăng nhập; khu quản trị mở từ nút góc trên landing hoặc /login.",
+      "demoScript": "Khách mở landing trên điện thoại, chọn combo Mua 2 tặng 1, đặt COD → telesale nhận đơn, gọi xác nhận → quản lý xem báo cáo theo nguồn quảng cáo.",
+      "devStatus": "DemoDuoc",
+      "isVisible": true,
       "isFeatured": false,
-      "firstPublishedDaysAgo": null,
+      "firstPublishedDaysAgo": 0,
       "createdDaysAgo": 8,
-      "updatedDaysAgo": 8,
-      "accounts": [],
+      "updatedDaysAgo": 0,
+      "accounts": [
+        {
+          "username": "admin",
+          "roleName": "Quản trị viên",
+          "purpose": "Phân quyền, tài khoản, thông tin shop"
+        },
+        {
+          "username": "quanly",
+          "roleName": "Quản lý",
+          "purpose": "Combo, nội dung landing, chia đơn, báo cáo"
+        },
+        {
+          "username": "nhanvien",
+          "roleName": "Telesale",
+          "purpose": "Gọi xác nhận, upsell, bàn giao vận chuyển"
+        }
+      ],
       "faqs": [],
-      "screenshots": [],
+      "screenshots": [
+        {
+          "file": "1.webp",
+          "caption": "Landing page: hero và đếm ngược khuyến mãi",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 61518
+        },
+        {
+          "file": "2.webp",
+          "caption": "Chọn combo, đặt hàng COD trên điện thoại",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 130600
+        },
+        {
+          "file": "3.webp",
+          "caption": "Telesale xử lý đơn hàng",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 133396
+        },
+        {
+          "file": "4.webp",
+          "caption": "Báo cáo theo nguồn quảng cáo",
+          "width": 1600,
+          "height": 1000,
+          "sizeBytes": 140862
+        }
+      ],
       "statusHistory": [
         {
           "from": null,
           "to": "MoiTao",
           "daysAgo": 8
+        },
+        {
+          "from": "MoiTao",
+          "to": "DemoDuoc",
+          "daysAgo": 0
         }
       ]
     },

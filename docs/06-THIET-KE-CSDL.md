@@ -28,13 +28,13 @@ erDiagram
 | :--- | :--- | :---: |
 | `Cms_Industries` | Nhóm ngành | 11 |
 | `Cms_Demos` | Demo | 18 |
-| `Cms_DemoScreenshots` | Ảnh chụp màn hình | 54 |
-| `Cms_DemoAccounts` | Tài khoản demo | 59 |
+| `Cms_DemoScreenshots` | Ảnh chụp màn hình | 58 |
+| `Cms_DemoAccounts` | Tài khoản demo | 62 |
 | `Cms_DemoFaqs` | Câu hỏi khách hay hỏi (nội bộ) | 26 |
 | `Cms_DemoSlugHistories` | Slug cũ để chuyển hướng 301 | 0 |
-| `Cms_DemoStatusHistories` | Lịch sử đổi trạng thái phát triển | 50 |
+| `Cms_DemoStatusHistories` | Lịch sử đổi trạng thái phát triển | 51 |
 | `Cms_DemoVisits` | Sự kiện xem, mở demo (thô, dùng chống tính trùng) | 0 |
-| `Cms_DemoVisitStats` | Lượt xem, lượt mở tổng hợp theo ngày | 585 (13 demo hiển thị, 15–75 ngày gần nhất) |
+| `Cms_DemoVisitStats` | Lượt xem, lượt mở tổng hợp theo ngày | 585 (13 demo hiển thị từ trước, 15–75 ngày gần nhất; Landing Page Bán hàng mới công khai hôm nay chưa có số liệu) |
 
 Dữ liệu mẫu nằm ở `FE/src/mock/seed/demo-data.json` (nguồn duy nhất, BE nhúng file này khi seed). `DemoDataSeeder` suy ra trường file seed chưa ghi giống FE mock: thứ tự = số thứ tự × 10; link demo `http://localhost:31NN`, Swagger `https://localhost:71NN/swagger`, repo `https://github.com/HungNDM-Web-Demo/{thư mục}`; mật khẩu demo = `DEMO_PASSWORD` khi cần đăng nhập; ảnh `/seed/demos/{slug}/{file}`, thiếu kích thước thì 1600×1000, dung lượng 0. Đặt lại dữ liệu xóa toàn bộ bảng `Cms_*` (bảng con trước) và thư mục `wwwroot/uploads/demos`.
 

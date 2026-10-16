@@ -48,8 +48,8 @@ Chữ màu nhóm trên nền nhạt phải đạt tương phản 4.5:1; nếu kh
 ├──────────────────────────────────────────────────────────┤
 │  Giải pháp phần mềm doanh nghiệp và đồ án sinh viên      │  ← tiêu đề ngắn + 1 dòng mô tả
 │  [🔍 Tìm demo: POS, nhà trọ, spa…            ]           │  ← ô tìm kiếm lớn
-│  (Tất cả 13) (F&B 3) (Bán lẻ 3) (Dịch vụ 3) …  → cuộn ngang trên điện thoại
-│  Tìm thấy 13 demo                       [Sao chép link]  │  ← nút chỉ hiện khi đăng nhập admin (quyền demos.share)
+│  (Tất cả 14) (F&B 3) (Bán lẻ 4) (Dịch vụ 3) …  → cuộn ngang trên điện thoại
+│  Tìm thấy 14 demo                       [Sao chép link]  │  ← nút chỉ hiện khi đăng nhập admin (quyền demos.share)
 ├──────────────────────────────────────────────────────────┤
 │  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐            │
 │  │ ảnh 16:10│ │        │ │        │ │        │  lưới 1/2/3/4 cột (NFR-01)

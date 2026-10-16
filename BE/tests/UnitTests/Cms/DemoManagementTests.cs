@@ -94,8 +94,8 @@ public sealed class DemoManagementTests : IAsyncLifetime
 
         Assert.Equal(("19-fnb-man-hinh-bep", DemoDevStatus.MoiTao, false), (created.Folder, created.DevStatus, created.IsVisible));
         var summary = await _host.CallAsync<IDemoManagementService, DemoSummary>(s => s.GetSummaryAsync());
-        Assert.Equal((19, 3), (summary.Total, summary.MoiTao));
-        Assert.Equal(13, (await PublicDemosAsync()).Count);
+        Assert.Equal((19, 2), (summary.Total, summary.MoiTao));
+        Assert.Equal(14, (await PublicDemosAsync()).Count);
 
         var history = await _host.CallAsync<IDemoManagementService, IReadOnlyList<StatusHistoryItem>>(s => s.GetStatusHistoryAsync(created.Id));
         Assert.Equal("admin", Assert.Single(history).ChangedByName);
@@ -195,14 +195,14 @@ public sealed class DemoManagementTests : IAsyncLifetime
         var history = await _host.CallAsync<IDemoManagementService, IReadOnlyList<StatusHistoryItem>>(s => s.GetStatusHistoryAsync(shop.Id));
         Assert.Equal((DemoDevStatus.HoanThien, DemoDevStatus.DemoDuoc, "admin"), (history[0].FromStatus, history[0].ToStatus, history[0].ChangedByName));
 
-        // TC-34: Quản lý Kho lùi về Đang làm: đứng đầu phần Sắp ra mắt, nút Bán lẻ vẫn 3.
+        // TC-34: Quản lý Kho lùi về Đang làm: đứng đầu phần Sắp ra mắt, nút Bán lẻ vẫn 4.
         var warehouse = await DetailAsync("quan-ly-kho");
         await _host.CallAsync<IDemoManagementService, DemoDetail>(s =>
             s.ChangeStatusAsync(warehouse.Id, new ChangeStatusRequest { Status = DemoDevStatus.DangLam, Reason = "Đang sửa lỗi phiếu nhập" }));
         var cards = await PublicDemosAsync();
         Assert.Equal(["Quản lý Kho", "Quản lý Phòng khám", "Quản lý Trung tâm Ngoại ngữ"], cards.TakeLast(3).Select(c => c.Name));
         var industries = await _host.CallAsync<ICatalogService, IReadOnlyList<PublicIndustry>>(s => s.GetIndustriesAsync());
-        Assert.Equal(3, industries.Single(i => i.Slug == "ban-le").Count);
+        Assert.Equal(4, industries.Single(i => i.Slug == "ban-le").Count);
     }
 
     [Fact]
@@ -247,19 +247,19 @@ public sealed class DemoManagementTests : IAsyncLifetime
     [Fact]
     public async Task Visibility_Tc35_Tc36()
     {
-        var landing = await DetailAsync("landing-page-ban-hang");
+        var tasks = await DetailAsync("quan-ly-cong-viec");
         var error = await Assert.ThrowsAsync<DomainException>(() => _host.CallAsync<IDemoManagementService, DemoDetail>(s =>
-            s.SetVisibilityAsync(landing.Id, new SetVisibilityRequest { IsVisible = true })));
+            s.SetVisibilityAsync(tasks.Id, new SetVisibilityRequest { IsVisible = true })));
         Assert.Equal(DemoRules.NewCannotShowMessage, error.Message);
 
         var rental = await DetailAsync("quan-ly-nha-tro");
         await _host.CallAsync<IDemoManagementService, DemoDetail>(s => s.SetVisibilityAsync(rental.Id, new SetVisibilityRequest { IsVisible = false }));
-        Assert.Equal(12, (await PublicDemosAsync()).Count);
+        Assert.Equal(13, (await PublicDemosAsync()).Count);
         var industries = await _host.CallAsync<ICatalogService, IReadOnlyList<PublicIndustry>>(s => s.GetIndustriesAsync());
         Assert.DoesNotContain(industries, i => i.Slug == "bat-dong-san");
 
         await _host.CallAsync<IDemoManagementService, DemoDetail>(s => s.SetVisibilityAsync(rental.Id, new SetVisibilityRequest { IsVisible = true }));
-        Assert.Equal(13, (await PublicDemosAsync()).Count);
+        Assert.Equal(14, (await PublicDemosAsync()).Count);
     }
 
     [Fact]

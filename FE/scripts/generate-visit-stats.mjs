@@ -39,6 +39,8 @@ for (const demo of data.demos) {
   const since = comingSoon
     ? demo.statusHistory.find((h) => h.to === 'DangLam')?.daysAgo ?? 30
     : demo.firstPublishedDaysAgo ?? 30
+  // Demo vừa công khai hôm nay chưa có ngày nào trọn vẹn: bỏ qua trước khi gọi rand() để số liệu demo khác không đổi
+  if (since <= 0) continue
   const openRate = comingSoon ? 0 : 0.28 + rand() * 0.14
   const mobileShare = 0.55 + rand() * 0.15
   for (let offset = -(Math.min(since, DAYS) - 1); offset <= 0; offset++) {

@@ -2,6 +2,7 @@
 // Mỗi ảnh dựng bằng SVG 1600×1000 theo `layout` (khung ứng dụng, menu đúng nghiệp vụ, dữ liệu tiếng Việt),
 // màu chủ đạo là màu nhóm ngành; chuyển WebP ≤150 KB (NFR-02) vào public/seed/demos/{slug}/{file},
 // rồi ghi width, height, sizeBytes cho từng ảnh trong demo-data.json (không đổi trường khác).
+// Ảnh không khai báo `layout` là ảnh chụp thật (đặt sẵn trong thư mục): bỏ qua, chỉ dùng làm ảnh thu nhỏ.
 // Xác định: không dùng ngẫu nhiên tự do (bộ sinh số có hạt giống cố định), chạy lại cho cùng kết quả.
 //
 // Chạy:      pnpm seed:images
@@ -9788,8 +9789,10 @@ async function renderShot(slug, file) {
 }
 // Ảnh thu nhỏ của một demo khác (PNG base64) để nhúng vào ảnh trang danh mục
 async function thumb(slug, file, w, h) {
-  const svg = await renderShot(slug, file)
-  const png = await sharp(Buffer.from(svg))
+  const shot = DATA.demos.find((d) => d.slug === slug)?.screenshots?.find((s) => s.file === file)
+  // Ảnh chụp thật (không có `layout`) thì thu nhỏ từ file WebP đã có
+  const source = shot && !shot.layout ? readFileSync(join(OUT_DIR, slug, file)) : Buffer.from(await renderShot(slug, file))
+  const png = await sharp(source)
     .resize(Math.round(w), Math.round(h), { kernel: 'lanczos3' })
     .png()
     .toBuffer()
@@ -9823,7 +9826,8 @@ async function main() {
   const jobs = []
   for (const demo of DATA.demos)
     for (const shot of demo.screenshots ?? [])
-      jobs.push({ slug: demo.slug, file: shot.file, layout: shot.layout })
+      // Ảnh không có `layout` là ảnh chụp thật của demo đã chạy: giữ nguyên, không vẽ đè
+      if (shot.layout) jobs.push({ slug: demo.slug, file: shot.file, layout: shot.layout })
   // Ảnh của Danh mục Demo nhúng ảnh thu nhỏ của demo khác nên vẽ sau cùng
   jobs.sort((a, b) => (a.slug === 'danh-muc-demo') - (b.slug === 'danh-muc-demo'))
   if (PREVIEW) mkdirSync(PREVIEW, { recursive: true })

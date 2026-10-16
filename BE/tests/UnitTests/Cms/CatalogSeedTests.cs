@@ -23,15 +23,15 @@ public sealed class CatalogSeedTests : IAsyncLifetime
     public async Task DisposeAsync() => await _host.DisposeAsync();
 
     [Fact]
-    public async Task PublicDemos_Tc01_ThirteenCardsInBr04Order()
+    public async Task PublicDemos_Tc01_FourteenCardsInBr04Order()
     {
         var cards = await _host.CallAsync<ICatalogService, IReadOnlyList<PublicDemoCard>>(s => s.GetDemosAsync());
 
         Assert.Equal(
             [
                 "POS Quán Cafe", "Menu QR Gọi món", "Website Bán hàng", "Quản lý Spa Salon", "CRM Quản lý Khách hàng",
-                "Quản lý Nhà hàng", "POS Cửa hàng Bán lẻ", "Quản lý Kho", "Cho thuê Sân thể thao", "Quản lý Nhà trọ",
-                "Website Công ty", "Quản lý Phòng khám", "Quản lý Trung tâm Ngoại ngữ"
+                "Quản lý Nhà hàng", "Landing Page Bán hàng", "POS Cửa hàng Bán lẻ", "Quản lý Kho", "Cho thuê Sân thể thao",
+                "Quản lý Nhà trọ", "Website Công ty", "Quản lý Phòng khám", "Quản lý Trung tâm Ngoại ngữ"
             ],
             cards.Select(c => c.Name));
         Assert.Equal(5, cards.Count(c => c.IsFeatured));
@@ -40,7 +40,7 @@ public sealed class CatalogSeedTests : IAsyncLifetime
             Assert.True(c.IsComingSoon);
             Assert.Null(c.DemoUrl);
         });
-        Assert.All(cards.Take(11), c => Assert.False(string.IsNullOrEmpty(c.DemoUrl)));
+        Assert.All(cards.Take(12), c => Assert.False(string.IsNullOrEmpty(c.DemoUrl)));
         Assert.Equal("/seed/demos/pos-quan-cafe/1.webp", cards[0].CoverUrl);
     }
 
@@ -50,7 +50,7 @@ public sealed class CatalogSeedTests : IAsyncLifetime
         var industries = await _host.CallAsync<ICatalogService, IReadOnlyList<PublicIndustry>>(s => s.GetIndustriesAsync());
 
         Assert.Equal(
-            ["F&B 3", "Bán lẻ 3", "Dịch vụ 3", "Giáo dục 1", "Doanh nghiệp 1", "Bất động sản 1", "Website 1"],
+            ["F&B 3", "Bán lẻ 4", "Dịch vụ 3", "Giáo dục 1", "Doanh nghiệp 1", "Bất động sản 1", "Website 1"],
             industries.Select(i => $"{i.Name} {i.Count}"));
     }
 
@@ -75,7 +75,7 @@ public sealed class CatalogSeedTests : IAsyncLifetime
     [Theory]
     [InlineData("hrm-cham-cong-tinh-luong")]
     [InlineData("khong-co")]
-    [InlineData("landing-page-ban-hang")]
+    [InlineData("quan-ly-cong-viec")]
     public async Task PublicDetail_Tc14_HiddenOrUnknown_IsNotFound(string slug)
     {
         await Assert.ThrowsAsync<NotFoundException>(() => _host.CallAsync<ICatalogService, PublicDemoLookup>(s => s.GetDemoAsync(slug)));
@@ -97,7 +97,7 @@ public sealed class CatalogSeedTests : IAsyncLifetime
         var summary = await _host.CallAsync<IDemoManagementService, DemoSummary>(s => s.GetSummaryAsync());
 
         Assert.Equal(
-            new DemoSummary { Total = 18, HoanThien = 5, DemoDuoc = 7, DangLam = 4, MoiTao = 2, Visible = 13, Featured = 5, FeaturedMax = 6 },
+            new DemoSummary { Total = 18, HoanThien = 5, DemoDuoc = 8, DangLam = 4, MoiTao = 1, Visible = 14, Featured = 5, FeaturedMax = 6 },
             summary);
     }
 
