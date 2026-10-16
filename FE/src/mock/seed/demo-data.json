@@ -1180,6 +1180,7 @@
       "problemSolved": "Bệnh nhân chờ lâu, xếp số thủ công; hồ sơ giấy khó tra lịch sử khám; quên nhắc tái khám nên mất khách.",
       "productType": "Web quản lý và trang đặt lịch khám",
       "devices": "Máy tính, tablet, điện thoại",
+      "demoUrl": "https://pum-phong-kham.vercel.app",
       "shortDescription": "Đặt lịch khám, hàng chờ, hồ sơ bệnh nhân, phiếu khám và nhắc tái khám cho phòng khám tư, nha khoa.",
       "description": "Bệnh nhân đặt lịch khám online theo bác sĩ. Lễ tân tiếp đón, xếp hàng chờ có ưu tiên. Bác sĩ xem lịch sử khám, ghi phiếu khám, kê đơn và lập kế hoạch điều trị nhiều buổi. Hệ thống nhắc tái khám đúng hẹn.",
       "features": [
@@ -1204,7 +1205,7 @@
       "isFeatured": false,
       "firstPublishedDaysAgo": null,
       "createdDaysAgo": 100,
-      "updatedDaysAgo": 2,
+      "updatedDaysAgo": 0,
       "accounts": [
         {
           "username": "admin",
