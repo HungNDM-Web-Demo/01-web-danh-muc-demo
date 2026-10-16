@@ -941,6 +941,7 @@
       "problemSolved": "Tồn kho trên sổ khác thực tế; nhập xuất ghi Excel khó truy vết; không biết hàng nào tồn lâu, hàng nào sắp hết; kiểm kê mất nhiều ngày.",
       "productType": "Web quản lý",
       "devices": "Máy tính, tablet",
+      "demoUrl": "https://pum-quan-ly-kho.vercel.app",
       "shortDescription": "Quản lý nhập, xuất, chuyển kho, kiểm kê và tồn kho theo thời gian thực cho doanh nghiệp có 1–3 kho.",
       "description": "Thủ kho lập phiếu nhập, xuất, chuyển kho; quản lý duyệt rồi tồn kho mới thay đổi. Hàng trên phiếu chờ duyệt được giữ chỗ. Kiểm kê mù từng nhóm hàng, chênh lệch lớn phải ghi nguyên nhân. Thẻ kho truy vết mọi giao dịch của một mặt hàng.",
       "features": [
@@ -966,7 +967,7 @@
       "isFeatured": false,
       "firstPublishedDaysAgo": 35,
       "createdDaysAgo": 108,
-      "updatedDaysAgo": 12,
+      "updatedDaysAgo": 0,
       "accounts": [
         {
           "username": "admin",
