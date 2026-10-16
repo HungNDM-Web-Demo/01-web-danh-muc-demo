@@ -824,6 +824,7 @@
       "problemSolved": "Phải nhớ giá hàng nghìn mặt hàng; tính tiền chậm, khách xếp hàng; không biết tồn kho thật; hàng sắp hết không kiểm soát được.",
       "productType": "Màn hình tính tiền có máy quét mã vạch và web quản lý",
       "devices": "Máy tính tiền, máy quét mã vạch, máy tính",
+      "demoUrl": "https://pum-pos-ban-le.vercel.app",
       "shortDescription": "Tính tiền quét mã vạch nhanh cho tạp hóa, mini mart: đơn vị thùng lốc, đổi trả, tồn kho, lợi nhuận.",
       "description": "Thu ngân quét mã vạch là ra giá, giữ nhiều hóa đơn chờ cùng lúc, gợi ý mệnh giá tiền khách đưa. Mỗi mặt hàng có nhiều đơn vị tính như thùng, lốc, chai với mã vạch và giá riêng. Chủ cửa hàng theo dõi tồn kho, giá vốn bình quân và lợi nhuận gộp mỗi ngày.",
       "features": [
@@ -849,7 +850,7 @@
       "isFeatured": false,
       "firstPublishedDaysAgo": 40,
       "createdDaysAgo": 110,
-      "updatedDaysAgo": 9,
+      "updatedDaysAgo": 0,
       "accounts": [
         {
           "username": "admin",
