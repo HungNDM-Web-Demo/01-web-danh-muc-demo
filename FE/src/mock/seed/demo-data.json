@@ -604,6 +604,7 @@
       "problemSolved": "Bán qua Facebook, Zalo phải trả lời từng tin nhắn; không có nơi trưng bày đủ sản phẩm; đơn ghi Excel dễ sót; không theo dõi được tồn kho theo màu, size.",
       "productType": "Website cho khách và trang quản trị",
       "devices": "Điện thoại, máy tính",
+      "demoUrl": "https://pum-ban-hang.vercel.app",
       "shortDescription": "Website bán hàng có giỏ hàng, biến thể màu size, đặt hàng COD và trang quản trị đơn hàng cho shop online.",
       "description": "Khách xem sản phẩm theo danh mục, lọc theo màu, size, giá; thêm vào giỏ và đặt hàng COD hoặc chuyển khoản. Shop xác nhận đơn, in phiếu giao, theo dõi tồn kho từng biến thể và chạy mã giảm giá. Phí ship tự tính theo khu vực.",
       "features": [
@@ -629,7 +630,7 @@
       "isFeatured": true,
       "firstPublishedDaysAgo": 70,
       "createdDaysAgo": 118,
-      "updatedDaysAgo": 3,
+      "updatedDaysAgo": 0,
       "accounts": [
         {
           "username": "admin",
@@ -725,6 +726,7 @@
       "problemSolved": "Chạy quảng cáo nhưng trang đích sơ sài, tỉ lệ chốt đơn thấp; đơn đổ về nhiều kênh khó gom; không biết nguồn quảng cáo nào ra đơn.",
       "productType": "Landing page và web quản lý đơn",
       "devices": "Điện thoại, máy tính",
+      "demoUrl": "https://pum-landing-page.vercel.app",
       "shortDescription": "Trang đích bán một sản phẩm chạy quảng cáo: đếm ngược khuyến mãi, chọn combo, form đặt hàng COD.",
       "description": "",
       "features": [
