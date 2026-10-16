@@ -1058,6 +1058,7 @@
       "problemSolved": "Đặt lịch qua điện thoại dễ trùng giờ, trùng nhân viên; gói liệu trình theo dõi bằng sổ; hoa hồng nhân viên tính tay cuối tháng.",
       "productType": "Web quản lý và trang đặt lịch cho khách",
       "devices": "Tablet, điện thoại, máy tính",
+      "demoUrl": "https://pum-spa.vercel.app",
       "shortDescription": "Lịch hẹn theo kỹ thuật viên, khách đặt lịch online, gói liệu trình tự trừ buổi và hoa hồng tính sẵn.",
       "description": "Lễ tân nhìn lịch hẹn dạng lưới theo từng kỹ thuật viên, kéo thả để đổi giờ. Khách tự đặt lịch online, chỉ thấy khung giờ còn trống. Mỗi lần làm dịch vụ trong gói, hệ thống tự trừ buổi. Hoa hồng của kỹ thuật viên cộng dồn theo từng dịch vụ.",
       "features": [
@@ -1083,7 +1084,7 @@
       "isFeatured": true,
       "firstPublishedDaysAgo": 55,
       "createdDaysAgo": 105,
-      "updatedDaysAgo": 5,
+      "updatedDaysAgo": 0,
       "accounts": [
         {
           "username": "admin",
